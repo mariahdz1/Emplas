@@ -7,3 +7,4 @@ Modelar una empresa como una clase
 5.Es posible leer y modificar el NIT de la empresa
 
 fecha de cumplimiento del Sprint 2 septiembre de 2022
+fecha de inicio de los daily 22 de Agosto de 2022
