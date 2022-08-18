@@ -13,6 +13,8 @@ public class Employee {
     private Date createdAt;
     private Date updatedAt;
 
+    
+    
     public Employee(long id, String email, Profile profile, Enum_RoleName role, Enterprise enterprise, Transaction[] transactions, Date createdAt) {
         this.id = id;
         this.email = email;
