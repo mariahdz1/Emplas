@@ -5,3 +5,5 @@ Modelar una empresa como una clase
 3.Es posible leer y modificar la dirección de la empresa
 4.Es posible leer y modificar el teléfono de la empresa
 5.Es posible leer y modificar el NIT de la empresa
+
+fecha de cumplimiento del Sprint 2 septiembre de 2022
