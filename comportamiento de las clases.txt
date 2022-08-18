@@ -8,3 +8,5 @@ Modelar una empresa como una clase
 
 fecha de cumplimiento del Sprint 2 septiembre de 2022
 fecha de inicio de los daily 22 de Agosto de 2022
+
+18/08/2022 se prueba subiendo el segundo commit para asegurarnos de que el proceso este siendo exitoso.
