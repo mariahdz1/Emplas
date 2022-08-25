@@ -90,7 +90,9 @@ public class Transaction {
         System.out.println("Introduce el monto de la transacción:");
         String nuevoMonto =lecturaTransaccion.nextLine();
 
+
         System.out.println("El nuevo concepto de la transacción es: "+nuevaTransaccion);
+        //Se pueden crear montos negativos y positivos
         System.out.println("El nuevo monto de la transacción es: "+nuevoMonto);
 
     }
