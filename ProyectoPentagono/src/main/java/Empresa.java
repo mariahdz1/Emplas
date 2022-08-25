@@ -81,6 +81,6 @@ public class Empresa {
         System.out.println("El nuevo nombre de la empresa es: "+nuevoNombre);
         System.out.println("La nueva dirección de la empresa es: "+nuevaDir);
 
-}
+    }
 
 }
