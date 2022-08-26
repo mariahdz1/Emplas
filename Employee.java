@@ -4,6 +4,8 @@ package com.mycompany.sprint2;
     import java.util.Date;
 
     public class Employee {
+
+        private String nombre;
         private long id;
         private String email;
         private Profile profile;
@@ -13,7 +15,7 @@ package com.mycompany.sprint2;
         private Date createdAt;
         private Date updatedAt;
 
-        public Employee(String email, Enum_RoleName role) {
+        public Employee(String nombre,String email, Enum_RoleName role) {
 
             //this.id = id;
             this.email = email;
@@ -22,7 +24,12 @@ package com.mycompany.sprint2;
             //this.enterprise = enterprise;
             //this.transactions = transactions;
             //this.createdAt = createdAt;
+            this.nombre = nombre;
         }
+
+        public String getNombre() { return nombre;}
+
+        public void setNombre(String nombre) {this.nombre = nombre;}
 
         public long getId() {
             return id;
