@@ -8,20 +8,23 @@ public class Transaction {
     private String concept;
     private float amount;
     private Enterprise enterprise;
-    private Date createdAt;
-    private Date updatedAt;
+    private String createdAt;
+    private String updatedAt;
+    private User user;
+    
 
-    public Transaction(long id, String concept, float amount, Enterprise enterprise, Date createdAt) {
+    public Transaction(long id, String concept, float amount, Enterprise enterprise, String createdAt, String updatedAt, User user) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
         this.enterprise = enterprise;
         this.createdAt = createdAt;
-        
-        
-    }
+        this.setUser(user);
 
-    public long getId() {
+                   }
+
+
+       public long getId() {
         return id;
     }
 
@@ -53,15 +56,28 @@ public class Transaction {
         this.enterprise = enterprise;
     }
 
-    public Date getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
-    
-    
-    
-    
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
