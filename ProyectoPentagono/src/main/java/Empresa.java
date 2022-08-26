@@ -61,26 +61,6 @@ public class Empresa {
         this.phone = address;
     }
 
-    public static void main(String[] args) {
-        Empresa empresa1 = new Empresa(126, "Empresa Prueba", "22456", "5555", "Kra22 No9");
 
-        System.out.println("El nombre de la empresa es: " + empresa1.name);
-        System.out.println("La identificación de la empresa es: " + empresa1.id);
-        System.out.println("El documento de la empresa es: " + empresa1.document);
-        System.out.println("El teléfono de la empresa es: " + empresa1.phone);
-        System.out.println("La dirección de la empresa es: " + empresa1.address);
-
-
-        Scanner lecturaDatos = new Scanner(System.in);
-        System.out.println("Introduce el nuevo nombre de la empresa:");
-        String nuevoNombre =lecturaDatos.nextLine();
-
-        System.out.println("Introduce la nueva dirección de la empresa:");
-        String nuevaDir =lecturaDatos.nextLine();
-
-        System.out.println("El nuevo nombre de la empresa es: "+nuevoNombre);
-        System.out.println("La nueva dirección de la empresa es: "+nuevaDir);
-
-    }
 
 }
