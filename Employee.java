@@ -21,8 +21,8 @@ package com.mycompany.sprint2;
             this.email = email;
             // this.profile = profile;
             this.role = role;
-            //this.enterprise = enterprise;
-            //this.transactions = transactions;
+            // this.enterprise = enterprise;
+            // this.transactions = transactions;
             //this.createdAt = createdAt;
             this.nombre = nombre;
         }
@@ -67,8 +67,8 @@ package com.mycompany.sprint2;
             return enterprise;
         }
 
-        public void setEnterprise(Enterprise enterprise) {
-            this.enterprise = enterprise;
+      //  public void setEnterprise(String enterprise) {
+          //  this.enterprise = enterprise;
         }
 
         public Transaction[] getTransactions() {
