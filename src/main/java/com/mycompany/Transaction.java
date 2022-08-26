@@ -11,12 +11,23 @@ public class Transaction {
     private Enterprise enterprise;
     private Date createdAt;
     private Date updatedAt;
+    private float saldo;
 
-    public Transaction(long id, String concept, float amount) {
+    public Transaction(long id, String concept, float amount, User user, Enterprise enterprise, Date createdAt, Date updatedAt, float saldo) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
+        this.user = user;
+        this.enterprise = enterprise;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.saldo = saldo;
+    }
 
+    public Transaction( long id, String concept, float amount) {
+        this.id = id;
+        this.concept = concept;
+        this.amount = amount;
     }
 
     public long getId() {
@@ -75,25 +86,23 @@ public class Transaction {
         this.updatedAt = updatedAt;
     }
 
-    public static void main(String[] args) {
-        Transaction transacion1 = new Transaction(112, "Primera Transacción", 1200000);
-
-        System.out.println("El concepto es: " + transacion1.concept);
-        System.out.println("La identificación de la transacción es: " + transacion1.id);
-        System.out.println("El monto de la transacción es: " + transacion1.amount);
-
-
-        Scanner lecturaTransaccion = new Scanner(System.in);
-        System.out.println("Introduce el concepto de la transacción:");
-        String nuevaTransaccion =lecturaTransaccion.nextLine();
-
-        System.out.println("Introduce el monto de la transacción:");
-        String nuevoMonto =lecturaTransaccion.nextLine();
-
-
-        System.out.println("El nuevo concepto de la transacción es: "+nuevaTransaccion);
-        //Se pueden crear montos negativos y positivos
-        System.out.println("El nuevo monto de la transacción es: "+nuevoMonto);
-
+    public float getSaldo() {
+        return saldo;
     }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    public float ingreso(float monto, float amount)  {
+        float total = amount + monto;
+        setSaldo(total);
+        return total;
+    }
+    public float Gasto(float gasto, float amount)  {
+        float total = amount - gasto;
+        setSaldo(total);
+        return total;
+    }
+
 }
