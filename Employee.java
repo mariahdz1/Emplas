@@ -13,12 +13,12 @@ package com.mycompany.sprint2;
         private Date createdAt;
         private Date updatedAt;
 
-        public Employee(String email) {
+        public Employee(String email, Enum_RoleName role) {
 
             //this.id = id;
             this.email = email;
             // this.profile = profile;
-            //this.role = role;
+            this.role = role;
             //this.enterprise = enterprise;
             //this.transactions = transactions;
             //this.createdAt = createdAt;
