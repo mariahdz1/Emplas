@@ -3,11 +3,11 @@ public class Transaction {
     private long id;
     private String concept;
     private float amount;
-    private Empresa enterprise;
+    private Enterprise enterprise;
     private Date createdAt;
     private Date updatedAt;
 
-    public Transaction(long id, String concept, float amount, Empresa enterprise, Date createdAt) {
+    public Transaction(long id, String concept, float amount, Enterprise enterprise, Date createdAt) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
@@ -41,11 +41,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Empresa getEnterprise() {
+    public Enterprise getEnterprise() {
         return enterprise;
     }
 
-    public void setEnterprise(Empresa enterprise) {
+    public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
     }
 

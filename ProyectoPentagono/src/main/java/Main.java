@@ -1,17 +1,16 @@
 import java.util.Scanner;
-import java.util.Date;
 
 public class Main {
 
     public static void main(String[] args) {
-        /*instancia de la clase Empresa*/
-        Empresa empresa1 = new Empresa(126, "Empresa Prueba", "22456", "5555", "Kra22 No9");
-        System.out.println("El nombre de la empresa es: " + empresa1.getName());
-        System.out.println("La dirección de la empresa es: " + empresa1.getAddress());
+        /*instancia de la clase Enterprise*/
+        Enterprise enterprise1 = new Enterprise(126, "Enterprise Prueba", "22456", "5555", "Kra22 No9");
+        System.out.println("El nombre de la empresa es: " + enterprise1.getName());
+        System.out.println("La dirección de la empresa es: " + enterprise1.getAddress());
         System.out.println("****************************************************************");
 
 
-        /*Ingreso de datos para cambiar de la instancia empresa1*/
+        /*Ingreso de datos para cambiar de la instancia enterprise1*/
         Scanner lecturaDatos = new Scanner(System.in);
         System.out.println("Introduce el nuevo nombre de la empresa:");
         String nuevoNombre = lecturaDatos.nextLine();

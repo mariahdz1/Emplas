@@ -1,7 +1,6 @@
 import java.util.Date;
-import java.util.Scanner;
 
-public class Empresa {
+public class Enterprise {
     private long id;
     private String name;
     private String document;
@@ -12,7 +11,7 @@ public class Empresa {
     private Date createdAt;
     private Date updatedAt;
 
-    public Empresa(long id, String name, String document, String phone, String address) {
+    public Enterprise(long id, String name, String document, String phone, String address) {
         this.id = id;
         this.name = name;
         this.document = document;
