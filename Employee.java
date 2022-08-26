@@ -69,7 +69,7 @@ package com.mycompany.sprint2;
 
       //  public void setEnterprise(String enterprise) {
           //  this.enterprise = enterprise;
-        }
+        //}
 
         public Transaction[] getTransactions() {
             return transactions;
