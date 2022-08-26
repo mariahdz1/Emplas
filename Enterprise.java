@@ -14,7 +14,7 @@ public class Enterprise {
     private Date createdAt;
     private Date updatedAt;
 
-    public Enterprise(long id, String name, String document, String phone, String address, User[] users, Transaction[] transactions, Date createdAt) {
+    public Enterprise(String name) {
         this.id = id;
         this.name = name;
         this.document = document;

@@ -15,6 +15,14 @@ public class Main {
         empleado1.setRole(Enum_RoleName.Operario);
         System.out.println("El nuevo rol del usuario es: " + empleado1);
 
+
+        Enterprise empresa1 = new Enterprise("Bavaria");
+        System.out.println("La empresa es: " + empresa1);
+
+        empresa1.setName("CocaCola");
+        System.out.println("La nueva empresa es: " + empresa1);
+
+
     }
 
 
