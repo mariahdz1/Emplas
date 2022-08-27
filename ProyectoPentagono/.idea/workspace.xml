@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed2a0f18-10ff-4270-a3f7-f0d586dab28b" name="Changes" comment="Se renombra la clase e instancia empresa, lectura y modificacion nombre y direccion">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enterprise.java" afterDir="false" />
+    <list default="true" id="ed2a0f18-10ff-4270-a3f7-f0d586dab28b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Enum_RoleName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Enterprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enterprise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Empresa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Enterprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Enterprise.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Transaction.class" afterDir="false" />
     </list>
@@ -26,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -83,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661481800613</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Se renombra la clase e instancia empresa, lectura y modificacion nombre y direccion">
+      <created>1661530348312</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661530348313</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

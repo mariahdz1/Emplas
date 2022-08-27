@@ -1,5 +1,5 @@
 import java.util.Date;
-
+/*codigo jessica*/
 public class Enterprise {
     private long id;
     private String name;
@@ -11,14 +11,15 @@ public class Enterprise {
     private Date createdAt;
     private Date updatedAt;
 
-    public Enterprise(long id, String name, String document, String phone, String address) {
-        this.id = id;
+    public Enterprise(String name, String document, String phone, String address) {
+
         this.name = name;
         this.document = document;
         this.phone = phone;
         this.address = address;
 
     }
+
 
     public long getId() {
         return id;
@@ -56,10 +57,39 @@ public class Enterprise {
         return address;
     }
 
-    public void setAddress(String phone) {
-        this.phone = address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
+    public User getUsers() {
+        return users;
+    }
 
+    public void setUsers(User users) {
+        this.users = users;
+    }
 
+    public Transaction getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Transaction transactions) {
+        this.transactions = transactions;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
