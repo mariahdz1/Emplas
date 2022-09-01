@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.exceptions;
+package com.pentagono.pentagono.exceptions;/*jessica 1 sept*/
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

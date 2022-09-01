@@ -1,11 +1,8 @@
-package com.pentagono.pentagono.model;
+package com.pentagono.pentagono.model;/*jessica 1sep*/
 
 /*import lombok.Data;*/
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /*@Data*/
@@ -13,11 +10,11 @@ import java.util.Date;
 @Table(name="enterprise")
 public class Enterprise {
     @Id
-    /*@GeneratedValue(strategy = GenerationType.IDENTITY) //sirve para crear el id secuencia autom*/
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //sirve para crear el id secuencia autom*/
     private long idEnterprise;
     @Column(name = "name",length=80,nullable = false, unique = true)
     private String name;
-    @Column(name = "document",length = 50,nullable = false,unique = true)
+    @Column(name = "document",length = 50,nullable = false,unique = true)/*NIT*/
     private String document;
     @Column(name = "phone",length = 50)
     private String phone;
@@ -32,5 +29,5 @@ public class Enterprise {
     @Column(name = "updatedAt",nullable = false)//Pendiente consultar fecha automatica
     private Date updatedAt;
     private boolean enabled;
-
+    /* falta definir cardinalidad @ManyToOne  @OneToMany*/
 }

@@ -1,9 +1,8 @@
-package com.pentagono.pentagono.repository;
+package com.pentagono.pentagono.repository;/*Jessica 1 sept*/
 
 import com.pentagono.pentagono.model.Enterprise;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ITransaction extends JpaRepository<Enterprise,Integer> {
+
+
+public interface ITransaction extends IGenericRepository<Enterprise,Long> {
 }

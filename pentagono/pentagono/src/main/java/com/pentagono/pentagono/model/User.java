@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.model;
+package com.pentagono.pentagono.model;/*jessica 1sep*/
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,5 +14,5 @@ public class User {
     private String email;
     @Column(name="password",length=8,nullable = false)
     private String password;
-
+/* falta definir cardinalidad @ManyToOne  @OneToMany*/
 }

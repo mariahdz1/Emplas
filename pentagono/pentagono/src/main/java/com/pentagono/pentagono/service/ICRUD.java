@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.service.Impl;
+package com.pentagono.pentagono.service;/*Jessica 1sept*/
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.service;
+package com.pentagono.pentagono.service;/*jessica 1 sept*/
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

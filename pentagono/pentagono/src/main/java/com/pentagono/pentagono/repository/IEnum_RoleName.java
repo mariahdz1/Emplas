@@ -1,9 +1,8 @@
-package com.pentagono.pentagono.repository;
+package com.pentagono.pentagono.repository;/*jessica 1sept*/
 
 import com.pentagono.pentagono.model.Enterprise;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface IEnum_RoleName extends JpaRepository<Enterprise,Integer> {
+
+public interface IEnum_RoleName extends IGenericRepository<Enterprise,Long> {
 }

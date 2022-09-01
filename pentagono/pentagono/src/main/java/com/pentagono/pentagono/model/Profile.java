@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.model;
+package com.pentagono.pentagono.model;/*jessica 1sep*/
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name="profile")
 public class Profile {
     @Id
-    private long Idprofile;
+    private long Idprofile;/*cedula del trabajador?*/
     @Column(name = "image")
     private String image;
     @Column(name = "phone",length=30)
@@ -21,6 +21,6 @@ public class Profile {
     private Date createAt;
     @Column(name = "UpdateAt")
     private Date updateAt;
-
+    /* falta definir cardinalidad @ManyToOne  @OneToMany*/
 
 }
