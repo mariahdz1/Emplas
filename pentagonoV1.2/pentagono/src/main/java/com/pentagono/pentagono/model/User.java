@@ -10,11 +10,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name="userData")
 public class User {
+
     @Id
     private long idUser;
+
     @Column(name="email",length=30,nullable = false, unique = true)
     private String email;
+
     @Column(name="password",length=8,nullable = false)
     private String password;
-/* falta definir cardinalidad @ManyToOne  @OneToMany*/
+
 }

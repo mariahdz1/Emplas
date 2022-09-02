@@ -1,9 +1,6 @@
 package com.pentagono.pentagono.model;/*jessica 1sep*/
 
-/*import lombok.Data;*/
-
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 

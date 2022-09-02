@@ -1,6 +1,6 @@
 package com.pentagono.pentagono.dto;/*Jessica 1 sept*/
 
-import com.pentagono.pentagono.model.Enum_RoleName;
+import com.pentagono.pentagono.model.RoleName;
 import com.pentagono.pentagono.model.Profile;
 import com.pentagono.pentagono.model.Transaction;
 import com.sun.istack.NotNull;
@@ -21,7 +21,7 @@ public class EmployeeDTO {
     @NotNull
     private String name;
     private Profile profile;
-    private Enum_RoleName rol;
+    private RoleName rol;
     private Transaction transaction;
     @NotNull
     private Date createdAt;
