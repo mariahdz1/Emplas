@@ -48,6 +48,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
+
     public ResponseEntity<EmployeeDTO> readById(@PathVariable("id") Long idEmployee) throws Exception{
         Employee empl = service.readById(idEmployee);
         if(empl == null){
