@@ -3,7 +3,6 @@ package com.pentagono.pentagono.model;/*jessica 1sep*/
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity /*crea una entidad*/
 @Table(name="employee")/*crea la tabla*/
 public class Employee {
@@ -19,7 +18,6 @@ public class Employee {
         this.updateAt = updateAt;
         this.rolename = rolename;
 
-        this.transaction = transaction;
     }
 
     @Id/*clave principal*/
@@ -48,10 +46,7 @@ public class Employee {
     @Enumerated(value=EnumType.STRING)
     private ERoleName rolename;
 
-    @OneToMany
-    @JoinColumn(name = "transaction_id")
-    private Transaction transaction;
-    @ManyToOne
+    @ManyToOne//fk
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
