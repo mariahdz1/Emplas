@@ -21,7 +21,7 @@ public class Profile {
     @Column(name = "phone",length=30)
     private String phone;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 

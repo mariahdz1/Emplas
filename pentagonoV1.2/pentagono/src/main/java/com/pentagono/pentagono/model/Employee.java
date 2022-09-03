@@ -1,18 +1,26 @@
 package com.pentagono.pentagono.model;/*jessica 1sep*/
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.pentagono.pentagono.dto.RoleName;
-import lombok.Data;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
-@Data/*ahorra código getter y setter y constructor*/
 @Entity /*crea una entidad*/
 @Table(name="employee")/*crea la tabla*/
 public class Employee {
+
+    public Employee() {
+    }
+
+    public Employee(Long idEmployee, String name, String email, Date createdAt, Date updateAt, ERoleName rolename, Transaction transaction) {
+        this.idEmployee = idEmployee;
+        this.name = name;
+        this.email = email;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
+        this.rolename = rolename;
+
+        this.transaction = transaction;
+    }
 
     @Id/*clave principal*/
     @GeneratedValue(strategy=GenerationType.AUTO)/*genera automáticamente el id secuencial*/
@@ -24,25 +32,6 @@ public class Employee {
     @Column(name="email",length=80,nullable = false, unique = true)
     private String email;
 
-    @OneToMany //FK
-    @JoinColumn(name="profile_id")
-    private Profile profile;
-
-    @OneToMany
-    @Column(name = "role")
-    private RolName role;
-
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
-    private List<Transaction> transactions = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "enterprise_id")
-    private Enterprise enterprise;
-
-    @Column(name="rol",nullable = false)
-    private RoleName roleName;
-
     @Column(name="createdAt")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
@@ -51,17 +40,20 @@ public class Employee {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt;
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + idEmployee +
-                ", email='" + email + '\'' +
-                ", profile=" + profile +
-                ", role=" + role +
-                ", enterprise=" + enterprise +
-                ", transactions=" + transactions +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updateAt +
-                '}';
-    }
+    @ManyToOne //FK
+    @JoinColumn(name="profile_id")
+    private Profile profile;
+
+    @Column(name="role",nullable=false)
+    @Enumerated(value=EnumType.STRING)
+    private ERoleName rolename;
+
+    @OneToMany
+    @JoinColumn(name = "transaction_id")
+    private Transaction transaction;
+    @ManyToOne
+    @JoinColumn(name = "enterprise_id")
+    private Enterprise enterprise;
+
+
 }
