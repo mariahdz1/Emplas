@@ -4,5 +4,5 @@ import com.pentagono.pentagono.model.Enterprise;
 
 
 
-public interface ITransaction extends IGenericRepository<Enterprise,Long> {
+public interface ITransactionRepository extends IGenericRepository<Enterprise,Long> {
 }

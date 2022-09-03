@@ -10,7 +10,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorDTO {
+
     private LocalDateTime datetime;
+
     private String message;
+
     private String path;
 }

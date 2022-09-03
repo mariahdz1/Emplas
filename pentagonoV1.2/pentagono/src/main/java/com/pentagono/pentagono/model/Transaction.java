@@ -1,12 +1,8 @@
 package com.pentagono.pentagono.model;/*jessica 1sep*/
 
 import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -15,7 +11,8 @@ import java.util.Date;
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)/*generación automática secuencial*/
+    @GeneratedValue(strategy = GenerationType.AUTO)/*generación automática secuencial*/
+    @Column(name = "id", nullable = false, unique = true)
     private long idTransaction;
 
     @Column(name="concept",length=150,nullable = false)
@@ -24,11 +21,16 @@ public class Transaction {
     @Column(name="amount",columnDefinition = "decimal(5,2)",length=30,nullable = false)
     private float amount;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "enterprise_id")
+    private Enterprise enterprise;
+
     /*@Column(name="user",nullable = false)
     private User user;*/
-
-    /*@Column(name="enterprise",nullable = false)
-    private Enterprise enterprise;*/
 
     @Column(name="createdAt",nullable = false)
     private Date createdAt;
@@ -38,6 +40,19 @@ public class Transaction {
 
     @Column(name="balance",columnDefinition = "decimal(5,2)",length=30)
     private float balance;
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + idTransaction +
+                ", concept='" + concept + '\'' +
+                ", amount=" + amount +
+                ", employee=" + employee +
+                ", enterprise=" + enterprise +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 
 
 }

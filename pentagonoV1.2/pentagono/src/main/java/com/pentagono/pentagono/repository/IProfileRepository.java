@@ -4,5 +4,5 @@ import com.pentagono.pentagono.model.Enterprise;
 
 
 
-public interface IProfile extends IGenericRepository<Enterprise,Long> {
+public interface IProfileRepository extends IGenericRepository<Enterprise,Long> {
 }
