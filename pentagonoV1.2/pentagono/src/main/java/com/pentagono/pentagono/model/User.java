@@ -14,6 +14,10 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long idUser;
 
+    @OneToOne
+    @JoinColumn(name = "id_employee", nullable = false)
+    private Employee employee;
+
     @Column(name="user",length=30)
     private String user;
 
@@ -27,5 +31,7 @@ public class User {
     @Column(name="updateAt")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt;
+
+    private boolean enabled;
 
 }

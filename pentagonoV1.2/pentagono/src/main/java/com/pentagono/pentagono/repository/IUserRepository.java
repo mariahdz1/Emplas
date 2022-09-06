@@ -4,5 +4,5 @@ import com.pentagono.pentagono.model.Enterprise;
 
 
 
-public interface IUser extends IGenericRepository<Enterprise,Long> {
+public interface IUserRepository extends IGenericRepository<Enterprise,Long> {
 }

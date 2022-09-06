@@ -1,26 +1,24 @@
 package com.pentagono.pentagono.service.Impl;
 
-import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.repository.IGenericRepository;
 import com.pentagono.pentagono.repository.ITransactionRepository;
 import com.pentagono.pentagono.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transaction;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public class TransactionServiceImpl extends CRUDImpl<Transaction, Long> implements ITransactionService {
+@Service
+public class TransactionServiceImpl  {
 
-@Autowired
-private ITransactionRepository repo;
+    @Autowired
+    private ITransactionRepository repo;
 
-    @Override
-    public List<Transaction> findByName(String name) {
-        return null;
-    }
 
-    @Override
-    protected IGenericRepository<Transaction, Long> getRepo() {
-        return null;
-    }
+    /*@Override
+    protected IGenericRepository<Transaction, Long> getRepo() {return null;}*/
+
+
 }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ITransactionService extends ICRUD<Transaction,Long>{
 
-    List<Transaction> findByName(String name);
+    /*List<Transaction> findByName(String name);*/
 
 }

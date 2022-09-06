@@ -1,5 +1,6 @@
 package com.pentagono.pentagono.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,17 +13,17 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 
-    @Size(min =3, max=80)
     private Integer idUser;
 
-    @NotNull
-    @NotEmpty
-    @Size(min =3, max=12)
     private String password;
 
     private Date createdAt;
 
     private Date updateAt;
+
+    private boolean enabled;
+
 }

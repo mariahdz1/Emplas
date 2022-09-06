@@ -1,8 +1,11 @@
 package com.pentagono.pentagono.model;/*jessica 1sep*/
 
-import javax.persistence.*;
-import java.util.Date;
+import lombok.Data;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+@Data
 @Entity /*crea una entidad*/
 @Table(name="employee")/*crea la tabla*/
 public class Employee {
@@ -11,17 +14,10 @@ public class Employee {
     @GeneratedValue(strategy=GenerationType.AUTO)/*genera automáticamente el id secuencial*/
     private Long idEmployee;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User user;
-
-    @ManyToOne
+    @NotNull
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_enterprise")
     private Enterprise enterprise;
-
-    @ManyToOne
-    @JoinColumn(name = "id_transaction")
-    private Transaction transaction;
 
     @Column(name="identification",length=80,nullable = false)
     private String identification;

@@ -9,11 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/*aca ponemos acciones a la interfaz*/
 @Service
 public class EnterpriseServiceImpl extends CRUDImpl<Enterprise, Long> implements IEnterpriseService {
 
-    @Autowired/*esto nos ahorra crear muchas instancias*/
+    @Autowired
     private IEnterpriseRepository repo;
 
     protected IGenericRepository<Enterprise, Long> getRepo(){
@@ -24,4 +23,9 @@ public class EnterpriseServiceImpl extends CRUDImpl<Enterprise, Long> implements
     public List<Enterprise> findByName(String name) {
         return repo.findByName(name);
     }
+
+    /*@Override
+    public List<Enterprise> findByNameLike(String name) {
+        return repo.findByNameLike("%" + name + "%");
+    }*/
 }

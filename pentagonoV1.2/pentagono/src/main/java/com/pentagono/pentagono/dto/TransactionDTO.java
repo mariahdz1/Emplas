@@ -14,27 +14,15 @@ import java.util.Date;
 @NoArgsConstructor
 public class TransactionDTO {
 
-    @NotNull
-    @NotEmpty
-    @Size(min =3, max=80)
     private long idTransaction;
 
-    @NotNull
-    @NotEmpty
-    @Size(min =3, max=100)
     private String concept;
 
-    @NotNull
-    @NotEmpty
-    @Size(min =2, max=20)
     private float amount;
 
     private Date createdAt;
 
     private Date updatedAt;
 
-    @NotNull
-    @NotEmpty
-    @Size(min =2, max=20)
     private float balance;
 }

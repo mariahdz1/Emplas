@@ -1,7 +1,7 @@
-package com.pentagono.pentagono;/*Jessica 1sept*/
+package com.pentagono.pentagono2.service;
 
-import com.pentagono.pentagono.dto.EnterpriseDTO;
-import com.pentagono.pentagono.model.Enterprise;
+import com.pentagono.pentagono2.dto.EnterpriseDTO;
+import com.pentagono.pentagono2.model.Enterprise;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MapperConfig {
+
     @Bean("enterpriseMapper")
     public ModelMapper enterpriseMapper() {
         ModelMapper mapper = new ModelMapper();
@@ -22,13 +23,8 @@ public class MapperConfig {
         return mapper;
     }
 
-    @Bean("employeeMapper")
+    /*@Bean("employeeMapper")
     public ModelMapper employeeMapper() {
-        return new ModelMapper();    }
-
-    @Bean("userMapper")
-    public ModelMapper userMapper(){ return new ModelMapper();}
-
-    @Bean("transactionMapper")
-    public ModelMapper transactionMapper(){ return new ModelMapper();}
+        return new ModelMapper();
+    }*/
 }
