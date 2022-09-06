@@ -2,22 +2,30 @@ package com.pentagono.pentagono.model;/*jessica 1sep*/
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
+
 @Data
 @Entity
-@Table(name="userData")
+@Table(name="user")
 public class User {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long idUser;
 
-    @Column(name="email",length=30,nullable = false, unique = true)
-    private String email;
+    @Column(name="user",length=30)
+    private String user;
 
-    @Column(name="password",length=8,nullable = false)
+    @Column(name="password",length=8,nullable = false, unique = true)
     private String password;
+
+    @Column(name="createdAt")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @Column(name="updateAt")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateAt;
 
 }

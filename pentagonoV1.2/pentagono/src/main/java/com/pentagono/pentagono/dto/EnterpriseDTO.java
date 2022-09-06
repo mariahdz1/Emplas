@@ -25,15 +25,17 @@ public class EnterpriseDTO {
     @NotEmpty
     private Long idEnterprise;
 
+    private Transaction transaction;
+
     @NotNull
     @NotEmpty
     @Size(min =3, max=50)
     private String name;
 
+
     @NotNull
     @NotEmpty
-    @Size(min=30)
-    private String document;
+    private String nit;
 
     @Size(min=30)
     private String phone;
@@ -41,9 +43,6 @@ public class EnterpriseDTO {
     @NotEmpty
     @Size(min=50)
     private String address;
-
-    @NotEmpty
-    private User users;
 
     @Size(min =3, max=50)
     private Transaction transactions;

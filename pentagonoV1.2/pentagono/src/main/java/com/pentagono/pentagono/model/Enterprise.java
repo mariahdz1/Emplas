@@ -6,8 +6,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-@Data
 @Entity /*crea una entidad*/
 @Table(name="enterprise")
 public class Enterprise {
@@ -17,25 +15,21 @@ public class Enterprise {
     @Column(name = "id", nullable = false, unique = true)
     private long idEnterprise;
 
-    @Column(name = "name",length=80,nullable = false, unique = true)
+    @OneToMany
+    @JoinColumn(name = "id_transaction")
+    private Transaction transaction;
+
+    @Column(name = "name",length=50,nullable = false, unique = true)
     private String name;
 
-    @Column(name = "document",length = 50,nullable = false,unique = true)/*NIT*/
-    private String document;
+    @Column(name = "NIT",length = 50,nullable = false,unique = true)/*NIT*/
+    private String nit;
 
-    @Column(name = "phone",length = 50)
+    @Column(name = "phone",length = 30)
     private String phone;
 
     @Column(name = "address",length = 50)
     private String address;
-
-    @OneToMany(mappedBy = "enterprise", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
-    private List<Employee> employees = new ArrayList<>();
-
-    @OneToMany(mappedBy = "enterprise", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
-    private List<Transaction> transactions = new ArrayList<>();
 
     @Column(name = "createdAt",nullable = false)//Pendiente consultar fecha automatica
     private Date createdAt;
@@ -45,19 +39,41 @@ public class Enterprise {
 
     private boolean enabled;
 
-    @Override
-    public String toString() {
-        return "Enterprise{" +
-                "id=" + idEnterprise +
-                ", name='" + name + '\'' +
-                ", document='" + document + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", employees=" + employees +
-                ", transactions=" + transactions +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+    public void setIdEnterprise(long idEnterprise) {
+        this.idEnterprise = idEnterprise;
     }
 
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }
+
+

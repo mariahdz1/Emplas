@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/enterprise")
+@RequestMapping("/enterprises")
 public class EnterpriseController {
     @Autowired/*inicializa variable*/
     private IEnterpriseService service;

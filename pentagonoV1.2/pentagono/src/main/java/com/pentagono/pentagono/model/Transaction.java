@@ -21,17 +21,6 @@ public class Transaction {
     @Column(name="amount",columnDefinition = "decimal(5,2)",length=30,nullable = false)
     private float amount;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
-
-    @ManyToOne
-    @JoinColumn(name = "enterprise_id")
-    private Enterprise enterprise;
-
-    /*@Column(name="user",nullable = false)
-    private User user;*/
-
     @Column(name="createdAt",nullable = false)
     private Date createdAt;
 
@@ -40,19 +29,5 @@ public class Transaction {
 
     @Column(name="balance",columnDefinition = "decimal(5,2)",length=30)
     private float balance;
-
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "id=" + idTransaction +
-                ", concept='" + concept + '\'' +
-                ", amount=" + amount +
-                ", employee=" + employee +
-                ", enterprise=" + enterprise +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
-    }
-
 
 }

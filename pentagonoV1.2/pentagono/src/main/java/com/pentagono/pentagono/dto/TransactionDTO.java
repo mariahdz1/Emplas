@@ -17,7 +17,7 @@ public class TransactionDTO {
     @NotNull
     @NotEmpty
     @Size(min =3, max=80)
-    private long id;
+    private long idTransaction;
 
     @NotNull
     @NotEmpty
@@ -28,6 +28,10 @@ public class TransactionDTO {
     @NotEmpty
     @Size(min =2, max=20)
     private float amount;
+
+    private Date createdAt;
+
+    private Date updatedAt;
 
     @NotNull
     @NotEmpty

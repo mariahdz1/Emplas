@@ -18,7 +18,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequestMapping("/transaction")
+@RestController
+@RequestMapping("/transactions")
 
 public class TransactionController {
     @Autowired/*inicializa variable*/
@@ -53,9 +54,9 @@ public class TransactionController {
     }
     @PutMapping
     public ResponseEntity<TransactionDTO> update(@Valid @RequestBody TransactionDTO transactionDto) throws Exception{
-        Transaction tra = service.readById(transactionDto.getId());
+        Transaction tra = service.readById(transactionDto.getIdTransaction());
         if(tra == null){
-            throw new ModelNotFoundException("Id de la transacción no encontrado: " + transactionDto.getId());
+            throw new ModelNotFoundException("Id de la transacción no encontrado: " + transactionDto.getIdTransaction());
         }
         Transaction transaction = service.update(mapper.map(transactionDto, Transaction.class));
         TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);

@@ -7,23 +7,22 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
-    @NotNull
-    @NotEmpty
-    @Size(min =3, max=80)
-    private Integer id;
 
-    @NotNull
-    @NotEmpty
     @Size(min =3, max=80)
-    private String email;
+    private Integer idUser;
 
     @NotNull
     @NotEmpty
     @Size(min =3, max=12)
     private String password;
+
+    private Date createdAt;
+
+    private Date updateAt;
 }

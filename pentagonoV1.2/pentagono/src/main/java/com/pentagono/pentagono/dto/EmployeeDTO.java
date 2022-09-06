@@ -1,7 +1,9 @@
 package com.pentagono.pentagono.dto;/*Jessica 1 sept*/
 
-import com.pentagono.pentagono.model.Profile;
+import com.pentagono.pentagono.model.ERoleName;
+import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.model.Transaction;
+import com.pentagono.pentagono.model.User;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,20 +19,27 @@ public class EmployeeDTO {
 
     private Long idEmployee;
 
-    @NotNull
-    private String name;
+    private User user;
 
-    private Profile profile;
-
-    private RoleName rol;
+    private Enterprise enterprise;
 
     private Transaction transaction;
 
-    @NotNull
+    private String identification;
+
+    private String email;
+
+    private String phone;
+
+    private String name;
+
+    private String image;
+
     private Date createdAt;
 
-    @NotNull
     private Date updateAt;
+
+    private ERoleName rolename;
 
 
 }

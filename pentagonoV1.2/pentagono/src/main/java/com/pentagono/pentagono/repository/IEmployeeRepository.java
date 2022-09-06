@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface IEmployeeRepository extends IGenericRepository<Employee,Long> {
-
-
+    List<Employee> findByName(String name);
 
 }
