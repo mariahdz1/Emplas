@@ -1,13 +1,11 @@
 package com.pentagono.pentagono.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.sun.istack.NotNull;
+import com.pentagono.pentagono.model.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
@@ -16,7 +14,11 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 
-    private Integer idUser;
+    private Long idUser;
+
+    private Employee employee;
+
+    private String user;
 
     private String password;
 

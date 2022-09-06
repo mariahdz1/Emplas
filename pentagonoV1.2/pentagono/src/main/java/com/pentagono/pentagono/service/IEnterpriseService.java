@@ -1,7 +1,6 @@
 package com.pentagono.pentagono.service;
 
 import com.pentagono.pentagono.model.Enterprise;
-import com.pentagono.pentagono.service.ICRUD;
 
 
 import java.util.List;

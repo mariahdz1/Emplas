@@ -54,21 +54,12 @@ public class UserController {
     public ResponseEntity<UserDTO> update(@Valid @RequestBody UserDTO userDTO) throws Exception{
         User us = service.readById(userDTO.getIdUser().longValue());
         if(us == null){
-            throw new ModelNotFoundException("Id no encontrado: " + userDTO.getIdUser());
+            throw new ModelNotFoundException("Id de Usuario no encontrado: " + userDTO.getIdUser());
         }
         User user = service.update(mapper.map(userDTO, User.class));
         UserDTO dto = mapper.map(user, UserDTO.class);
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
-        User user = service.readById(id);
-        if(user == null){
-            throw new ModelNotFoundException("Id no encontrado: " + id);
-        }
-        service.delete(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
 
 }

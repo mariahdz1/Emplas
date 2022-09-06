@@ -1,10 +1,8 @@
-package com.pentagono.pentagono.dto;/*Jessica 1 sept*/
+package com.pentagono.pentagono.dto;
 
 import com.pentagono.pentagono.model.ERoleName;
 import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.model.Transaction;
-import com.pentagono.pentagono.model.User;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,8 +16,6 @@ public class EmployeeDTO {
 
 
     private Long idEmployee;
-
-    private User user;
 
     private Enterprise enterprise;
 

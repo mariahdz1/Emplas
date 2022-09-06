@@ -1,12 +1,12 @@
 package com.pentagono.pentagono.dto;
 
-import com.sun.istack.NotNull;
+import com.pentagono.pentagono.model.Employee;
+import com.pentagono.pentagono.model.Enterprise;
+import com.pentagono.pentagono.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
@@ -15,6 +15,12 @@ import java.util.Date;
 public class TransactionDTO {
 
     private long idTransaction;
+
+    private Employee employee;
+
+    private User user;
+
+    private Enterprise enterprise;
 
     private String concept;
 

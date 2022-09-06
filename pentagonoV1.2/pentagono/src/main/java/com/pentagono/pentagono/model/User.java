@@ -1,5 +1,4 @@
-package com.pentagono.pentagono.model;/*jessica 1sep*/
-
+package com.pentagono.pentagono.model;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,15 +6,14 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name="user")
 public class User {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long idUser;
 
-    @OneToOne
-    @JoinColumn(name = "id_employee", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "user_employee", nullable = false, referencedColumnName = "idEmployee")
     private Employee employee;
 
     @Column(name="user",length=30)

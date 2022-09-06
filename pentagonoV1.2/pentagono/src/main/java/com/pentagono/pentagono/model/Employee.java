@@ -3,21 +3,23 @@ package com.pentagono.pentagono.model;/*jessica 1sep*/
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 @Data
-@Entity /*crea una entidad*/
-@Table(name="employee")/*crea la tabla*/
+@Entity
+@Table(name="employee")
 public class Employee {
 
-    @Id/*clave principal*/
-    @GeneratedValue(strategy=GenerationType.AUTO)/*genera automáticamente el id secuencial*/
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long idEmployee;
 
-    @NotNull
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_enterprise")
+    @JoinColumn(name = "employee_enterprise", referencedColumnName = "idEnterprise")
     private Enterprise enterprise;
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "transaction_employee", referencedColumnName = "idTransaction")
+    private Transaction transaction;
 
     @Column(name="identification",length=80,nullable = false)
     private String identification;

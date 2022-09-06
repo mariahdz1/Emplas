@@ -1,8 +1,6 @@
-package com.pentagono.pentagono.repository;/*Jessica 1 sept*/
-
-import com.pentagono.pentagono.model.Enterprise;
-
+package com.pentagono.pentagono.repository;
+import com.pentagono.pentagono.model.User;
 
 
-public interface IUserRepository extends IGenericRepository<Enterprise,Long> {
+public interface IUserRepository extends IGenericRepository<User,Long> {
 }

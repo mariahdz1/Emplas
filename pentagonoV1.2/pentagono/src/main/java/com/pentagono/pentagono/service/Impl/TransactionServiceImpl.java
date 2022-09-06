@@ -1,14 +1,8 @@
 package com.pentagono.pentagono.service.Impl;
 
-import com.pentagono.pentagono.repository.IGenericRepository;
 import com.pentagono.pentagono.repository.ITransactionRepository;
-import com.pentagono.pentagono.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transaction;
-import javax.transaction.Transactional;
-import java.util.List;
 
 @Service
 public class TransactionServiceImpl  {

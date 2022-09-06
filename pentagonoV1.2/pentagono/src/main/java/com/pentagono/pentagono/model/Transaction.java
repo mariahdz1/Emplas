@@ -7,17 +7,25 @@ import java.util.Date;
 
 @Data
 @Entity /*crea una entidad*/
-/*@Table(name="transaction")*/
+@Table(name="transaction")
 public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    /*@Column(name = "id", nullable = false, unique = true)*/
+    @Column(name = "id", nullable = false, unique = true)
     private long idTransaction;
 
     @ManyToOne
-    @JoinColumn(name = "id_employee", nullable = false)
+    @JoinColumn(name = "transaction_employee", nullable = false, referencedColumnName = "idEmployee")
     private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "transaction_user", nullable = false, referencedColumnName = "idUser")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "transaction_enterprise", nullable = false, referencedColumnName = "idEnterprise")
+    private Enterprise enterprise;
 
     @Column(name="concept",length=150,nullable = false)
     private String concept;
