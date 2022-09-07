@@ -6,10 +6,12 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name="user")
 public class User {
 
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long idUser;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
@@ -19,7 +21,7 @@ public class User {
     @Column(name="user",length=30)
     private String user;
 
-    @Column(name="password",length=8,nullable = false, unique = true)
+    @Column(name="password",length=8,unique = true)
     private String password;
 
     @Column(name="createdAt")

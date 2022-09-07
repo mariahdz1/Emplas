@@ -1,23 +1,24 @@
 package com.pentagono.pentagono.dto;
 
-import com.pentagono.pentagono.model.Employee;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.pentagono.pentagono.model.Enterprise;
+import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransactionDTO {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class TransactionDetailDTO {
 
-    private long idTransaction;
+    @JsonIgnore
+    private Long idTransactionDetail;
 
-    private Employee employee;
+    private Transaction transaction;
 
     private User user;
 
@@ -26,10 +27,4 @@ public class TransactionDTO {
     private String concept;
 
     private float amount;
-
-    private Date createdAt;
-
-    private Date updatedAt;
-
-    private float balance;
 }

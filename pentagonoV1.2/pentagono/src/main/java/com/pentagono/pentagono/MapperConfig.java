@@ -1,5 +1,4 @@
-package com.pentagono.pentagono;/*Jessica 1sept*/
-
+package com.pentagono.pentagono;
 import com.pentagono.pentagono.dto.EnterpriseDTO;
 import com.pentagono.pentagono.model.Enterprise;
 import org.modelmapper.ModelMapper;

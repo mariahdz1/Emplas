@@ -10,16 +10,12 @@ import java.util.Date;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long idEmployee;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "employee_enterprise", referencedColumnName = "idEnterprise")
+    @ManyToOne
+    /*@JoinColumn(name = "employee_enterprise", referencedColumnName = "idEnterprise")*/
     private Enterprise enterprise;
-
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "transaction_employee", referencedColumnName = "idTransaction")
-    private Transaction transaction;
 
     @Column(name="identification",length=80,nullable = false)
     private String identification;
