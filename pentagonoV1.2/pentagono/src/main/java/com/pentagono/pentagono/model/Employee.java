@@ -14,7 +14,7 @@ public class Employee {
     private Long idEmployee;
 
     @ManyToOne
-    /*@JoinColumn(name = "employee_enterprise", referencedColumnName = "idEnterprise")*/
+    @JoinColumn(name = "employee_enterprise", referencedColumnName = "idEnterprise")
     private Enterprise enterprise;
 
     @Column(name="identification",length=80,nullable = false)

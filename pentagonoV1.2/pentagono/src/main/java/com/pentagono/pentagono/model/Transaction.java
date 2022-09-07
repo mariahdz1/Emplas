@@ -19,6 +19,10 @@ public class Transaction {
     @OneToMany(mappedBy = "transaction", cascade = CascadeType.ALL)
     private List<TransactionDetail> details;
 
+    @ManyToOne
+    @JoinColumn(name = "user_transaction", nullable = false, referencedColumnName = "idUser")
+    private User user;
+
     @Column(name="createdAt",nullable = false)
     private Date createdAt;
 

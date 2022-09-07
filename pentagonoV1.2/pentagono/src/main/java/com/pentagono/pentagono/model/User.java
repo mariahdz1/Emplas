@@ -6,17 +6,13 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name="user")
+/*@Table(name="user")*/
 public class User {
 
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long idUser;
-
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "user_employee", nullable = false, referencedColumnName = "idEmployee")
-    private Employee employee;
 
     @Column(name="user",length=30)
     private String user;

@@ -1,11 +1,14 @@
 package com.pentagono.pentagono.exceptions;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
+import java.util.stream.Collectors;
 
 public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
@@ -19,7 +22,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         ErrorDTO dto = new ErrorDTO(LocalDateTime.now(), ex.getMessage(), request.getDescription(true));
         return new ResponseEntity<>(dto, HttpStatus.NOT_FOUND);
     }
-    /*@Override
+    @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
         String message = ex.getBindingResult().getFieldErrors().stream().map(error ->
@@ -28,6 +31,6 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
         ErrorDTO dto = new ErrorDTO(LocalDateTime.now(), message, request.getDescription(false));
         return new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
-    }*/
+    }
 
 }
