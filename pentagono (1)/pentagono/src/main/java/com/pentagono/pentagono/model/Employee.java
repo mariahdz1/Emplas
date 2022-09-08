@@ -3,6 +3,7 @@ package com.pentagono.pentagono.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Date;
 
 @Data
@@ -21,6 +22,7 @@ public class Employee {
     private String identification;
 
     @Column(name="email",length=80,nullable = false, unique = true)
+    @Email
     private String email;
 
     @Column(name = "phone",length=30)
@@ -40,7 +42,4 @@ public class Employee {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt;
 
-    @Column(name="role",nullable=false)
-    @Enumerated(value=EnumType.STRING)
-    private RoleName rolename;
 }

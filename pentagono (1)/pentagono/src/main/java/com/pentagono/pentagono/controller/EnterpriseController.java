@@ -25,7 +25,7 @@ public class EnterpriseController {
 
     @PostMapping/*verbo HTTP*/
     public Enterprise create(@RequestBody Enterprise enterprise) throws Exception{
-        return service.create(enterprise);
+        return (Enterprise) service.create(enterprise);
     }
 
 
