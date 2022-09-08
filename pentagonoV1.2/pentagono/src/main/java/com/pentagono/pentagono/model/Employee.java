@@ -4,18 +4,23 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name="employee")
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long idEmployee;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "employee_enterprise", referencedColumnName = "idEnterprise")
     private Enterprise enterprise;
+
+    @OneToMany(mappedBy="employee")
+    private Set<Transaction> transaction;
 
     @Column(name="identification",length=80,nullable = false)
     private String identification;
