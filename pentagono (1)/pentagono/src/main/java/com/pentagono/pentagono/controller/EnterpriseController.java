@@ -1,12 +1,16 @@
 package com.pentagono.pentagono.controller;
 
+import com.pentagono.pentagono.dto.EnterpriseDTO;
 import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.service.IEnterpriseService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,10 +21,16 @@ public class EnterpriseController {
     @Autowired
     private IEnterpriseService service;
 
-    @GetMapping
-    public List<Enterprise> readAll() throws Exception{
-        return service.readAll();
+    @Autowired
+    @Qualifier("enterpriseMapper")
+    private ModelMapper mapper;
 
+    @GetMapping
+    public ResponseEntity<List<EnterpriseDTO>> readAll() throws Exception{
+        List<EnterpriseDTO> list = service.readAll().stream()
+                .map(e -> mapper.map(e, EnterpriseDTO.class))
+                .collect(Collectors.toList());
+            return new ResponseEntity <>(list, HttpStatus.CREATED);
     }
 
     @PostMapping/*verbo HTTP*/
