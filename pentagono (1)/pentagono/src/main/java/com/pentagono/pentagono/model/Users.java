@@ -22,4 +22,6 @@ public class Users {
 
     @Column(name="role",nullable=false)
     private RoleName rolename;
+
+    private boolean enabled;
 }

@@ -27,7 +27,7 @@ public class MapperConfig {
     @Bean("transactionMapper")
     public ModelMapper transactionMapper(){ return new ModelMapper();}
 
-    @Bean("userInfoMapper")
+    @Bean("usersMapper")
     public ModelMapper userInfoMapper(){ return new ModelMapper();}
 
 

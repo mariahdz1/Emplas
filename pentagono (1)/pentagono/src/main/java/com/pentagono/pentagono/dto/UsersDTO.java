@@ -1,5 +1,6 @@
 package com.pentagono.pentagono.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.model.RoleName;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import javax.validation.constraints.Min;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class UsersDTO {
 
     @Min(1)
     @Max(999)
