@@ -42,4 +42,5 @@ public class Employee {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt;
 
+    private boolean enabled;
 }

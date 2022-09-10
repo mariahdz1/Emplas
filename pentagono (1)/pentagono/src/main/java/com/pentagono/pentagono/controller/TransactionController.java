@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("transactions")
 public class TransactionController {
     @Autowired
     private ITransactionService service;
@@ -29,7 +29,7 @@ public class TransactionController {
         List<TransactionDTO> list = service.readAll().stream()
                 .map(t -> mapper.map(t, TransactionDTO.class))
                 .collect(Collectors.toList());
-        return new ResponseEntity <>(list, HttpStatus.CREATED);
+        return new ResponseEntity <>(list, HttpStatus.OK);
     }
 
     @PostMapping
@@ -42,12 +42,12 @@ public class TransactionController {
 
     @PutMapping
     public ResponseEntity<TransactionDTO> update(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
-        Transaction transaction = service.readById(transactionDTO.getIdTransaction());
-        if(transaction == null) {
+        Transaction tr = service.readById(transactionDTO.getIdTransaction());
+        if(tr == null) {
             throw new ModelNotFoundException("ID NOT FOUND: " + transactionDTO.getIdTransaction());
         }
-        Transaction r = service.update(mapper.map(transactionDTO, Transaction.class));
-        TransactionDTO dto = mapper.map(r, TransactionDTO.class);
+        Transaction transaction = service.update(mapper.map(transactionDTO, Transaction.class));
+        TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 

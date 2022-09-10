@@ -13,6 +13,7 @@ import javax.validation.constraints.Min;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)/*ojo*/
 public class UsersDTO {
 
     @Min(1)

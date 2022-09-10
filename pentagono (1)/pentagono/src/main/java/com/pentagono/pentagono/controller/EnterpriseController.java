@@ -1,15 +1,21 @@
 package com.pentagono.pentagono.controller;
 
 import com.pentagono.pentagono.dto.EnterpriseDTO;
+import com.pentagono.pentagono.dto.TransactionDTO;
+import com.pentagono.pentagono.dto.UsersDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
 import com.pentagono.pentagono.model.Enterprise;
+import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.service.IEnterpriseService;
+import net.bytebuddy.asm.Advice;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,35 +30,47 @@ public class EnterpriseController {
     @Qualifier("enterpriseMapper")
     private ModelMapper mapper;
 
-    @GetMapping
+    @GetMapping/*FUNCIONAL*/
     public ResponseEntity<List<EnterpriseDTO>> readAll() throws Exception{
         List<EnterpriseDTO> list = service.readAll().stream()
                 .map(e -> mapper.map(e, EnterpriseDTO.class))
                 .collect(Collectors.toList());
-            return new ResponseEntity <>(list, HttpStatus.CREATED);
+            return new ResponseEntity <>(list, HttpStatus.OK);
     }
 
-    @PostMapping/*verbo HTTP*/
-    public Enterprise create(@RequestBody Enterprise enterprise) throws Exception{
-        return (Enterprise) service.create(enterprise);
+    @PostMapping/*FUNCIONAL*/
+    public ResponseEntity<EnterpriseDTO> create(@Valid @RequestBody EnterpriseDTO enterpriseDTO) throws Exception{
+        Enterprise ent = service.create(mapper.map(enterpriseDTO, Enterprise.class));
+        EnterpriseDTO dto = mapper.map(ent,EnterpriseDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.CREATED);
     }
 
-
-    @GetMapping("/{id}")
-    public Enterprise readById(@PathVariable("id") Long id) throws Exception {
-        return service.readById(id);
+    @GetMapping("/{id}")/*FUNCIONAL*/
+    public ResponseEntity<EnterpriseDTO> readById(@PathVariable("id") Long id) throws Exception{
+        Enterprise ent = service.readById(id);
+        if(ent == null){
+            throw new ModelNotFoundException("Id de la empresa ingresado no fue encontrado en la Base de datos Emplas: " + id);
+        }
+        EnterpriseDTO dto = mapper.map(ent, EnterpriseDTO.class);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    @PutMapping
-    public Enterprise update(@RequestBody Enterprise enterprise) throws Exception {
-        return service.update(enterprise);
+    @PutMapping/*FUNCIONAL*/
+    public ResponseEntity<EnterpriseDTO> update(@Valid @RequestBody EnterpriseDTO enterpriseDTO) throws Exception{
+        Enterprise ent = service.readById(enterpriseDTO.getIdEnterprise());
+        if(ent == null){
+            throw new ModelNotFoundException("No fue encontrado en la Base de Datos Emplas Id de la empresa: " + enterpriseDTO.getIdEnterprise());
+        }
+        Enterprise enterprise = service.update(mapper.map(enterpriseDTO, Enterprise.class));
+        EnterpriseDTO dto = mapper.map(enterprise, EnterpriseDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")/*FUNCIONAL*/
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
         Enterprise ent = service.readById(id);
         if(ent == null){
-            throw new ModelNotFoundException("Id no encontrado: " + id);
+            throw new ModelNotFoundException("Id no encontrado en la Base de datos Emplas: " + id);
         }
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -67,18 +85,27 @@ public class EnterpriseController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    /*@GetMapping("/find/name/like/{param}")
+    @GetMapping("/find/name/like/{param}")
     public ResponseEntity<List<EnterpriseDTO>> findByNameLike(@PathVariable("param") String param) throws Exception
     {
         List<EnterpriseDTO> list = service.findByNameLike(param).stream()
-                .map(c -> mapper.map(c, EnterpriseDTO.class))
+                .map(e -> mapper.map(e, EnterpriseDTO.class))
                 .collect(Collectors.toList());
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) throws Exception{
         service.delete(id);
-    }*/
+    }
+    post
+    /*public Enterprise create(@RequestBody Enterprise enterprise) throws Exception{
+        return (Enterprise) service.create(enterprise);
+    }
+    @PutMapping
+    public Enterprise update(@RequestBody Enterprise enterprise) throws Exception {
+        return service.update(enterprise);
+    }
+     */
 
 }

@@ -21,6 +21,10 @@ public class Transaction {
     @JoinColumn(name = "employee_transaction", nullable = false, referencedColumnName = "idEmployee")
     private Employee employee;
 
+    @ManyToOne
+    @JoinColumn(name = "idMovements", nullable = false, referencedColumnName = "idEnterprise")
+    private Enterprise enterprise;
+
     @Column(name="createdAt",nullable = false)
     private Date createdAt;
 

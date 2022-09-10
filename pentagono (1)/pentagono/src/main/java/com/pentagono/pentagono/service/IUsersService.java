@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IUsersService extends ICRUD<Users, Long> {
 
-    List<Enterprise> findByName(String name);
+    List<Users> findByName(String name);
 
 }

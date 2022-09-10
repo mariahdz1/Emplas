@@ -19,6 +19,11 @@ public class EnterpriseServiceImpl extends CRUDImpl<Enterprise, Long> implements
 
     @Override
     public List<Enterprise> findByName(String name) {
-        return null;
+        return repo.findByName(name);
+    }
+
+    @Override
+    public List<Enterprise> findByNameLike(String name) {
+        return repo.findByNameLike("%" + name + "%");
     }
 }

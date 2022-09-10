@@ -20,7 +20,7 @@ public class UsersServiceImpl extends CRUDImpl<Users, Long> implements IUsersSer
     }
 
     @Override
-    public List<Enterprise> findByName(String name) {
+    public List<Users> findByName(String name) {
         return null;
     }
 }

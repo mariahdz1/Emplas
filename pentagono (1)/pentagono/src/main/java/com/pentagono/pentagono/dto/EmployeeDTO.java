@@ -7,24 +7,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeDTO {
 
-    @Min(1)
-    @Max(999)
     private Long IdEmployee;
-
-    @NotNull
-    @NotEmpty
-    @Size(min=3,max=50)
-    private String name;
-
-    private String identification;
-
     private Enterprise enterprise;
+    private String identification;
+    private String email;
+    private String phone;
+    private String image;
+    private Date createdAt;
+    private Date updateAt;
+    private boolean enabled;
 
-    private RoleName rolename;
+
 }
+
+    /*private RoleName rolename;
+
+    private Long password;
+    */

@@ -17,7 +17,7 @@ public class Enterprise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEnterprise;
 
-    @Column(name = "name",length=50,nullable = false, unique = true)
+    @Column(name = "name",length=50,nullable = false)
     private String name;
 
     @Column(name = "NIT",length = 50,nullable = false,unique = true)/*NIT*/

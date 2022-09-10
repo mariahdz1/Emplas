@@ -1,15 +1,22 @@
 package com.pentagono.pentagono.controller;
 
+import com.pentagono.pentagono.dto.UsersDTO;
+import com.pentagono.pentagono.exceptions.ModelNotFoundException;
 import com.pentagono.pentagono.model.Users;
 import com.pentagono.pentagono.service.IUsersService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("users")
 public class UsersController {
     @Autowired
     private IUsersService service;
@@ -34,13 +41,12 @@ public class UsersController {
         return service.update(users);
     }
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) throws Exception{
         service.delete(id);
-    }
+    }*/
 
-}
-/*@GetMapping
+    @GetMapping
     public ResponseEntity<List<UsersDTO>> readAll() throws Exception {
         List<UsersDTO> list = service.readAll().stream()
                 .map(u -> mapper.map(u, UsersDTO.class))
@@ -57,4 +63,7 @@ public class UsersController {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
-    }*/
+    }
+
+}
+

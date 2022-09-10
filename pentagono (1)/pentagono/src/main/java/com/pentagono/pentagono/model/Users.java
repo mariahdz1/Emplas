@@ -17,6 +17,9 @@ public class Users {
     @JoinColumn(name = "user_enterprise", referencedColumnName = "idEnterprise")
     private Enterprise enterprise;
 
+    @Column(name="nick",length=50, nullable = false)
+    private String nick;
+
     @Column(name="password",length=8, nullable = false)
     private Long password;
 
