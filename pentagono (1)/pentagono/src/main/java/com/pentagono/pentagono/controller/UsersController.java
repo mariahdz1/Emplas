@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,44 +27,54 @@ public class UsersController {
     private ModelMapper mapper;
 
 
-    @GetMapping("/{id}")
-    public Users readById(@PathVariable("id") Long id) throws Exception {
-        return service.readById(id);
-    }
-
-    @PostMapping
-    public Users create(@RequestBody Users users) throws Exception {
-        return (Users) service.create(users);
-    }
-
-    @PutMapping
-    public Users update(@RequestBody Users users) throws Exception {
-        return service.update(users);
-    }
-
-    /*@DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) throws Exception{
-        service.delete(id);
-    }*/
-
     @GetMapping
-    public ResponseEntity<List<UsersDTO>> readAll() throws Exception {
+    public ResponseEntity<List<UsersDTO>> readAll() throws Exception{
         List<UsersDTO> list = service.readAll().stream()
                 .map(u -> mapper.map(u, UsersDTO.class))
                 .collect(Collectors.toList());
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+    @PostMapping
+    public ResponseEntity<UsersDTO> create(@Valid @RequestBody UsersDTO userDTO) throws Exception{
+        Users use = service.create(mapper.map(userDTO, Users.class));
+        UsersDTO dto = mapper.map(use,UsersDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UsersDTO> readById(@PathVariable("id") Long id) throws Exception{
+        Users use = service.readById(id);
+        if(use == null){
+            throw new ModelNotFoundException("Id Nº: " + id + " No fue encontrado");
+        }
+        UsersDTO dto = mapper.map(use, UsersDTO.class);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<UsersDTO> update(@Valid @RequestBody UsersDTO userDTO) throws Exception{
+        Users use = service.readById(userDTO.getIdUser());
+        if(use == null){
+            throw new ModelNotFoundException("Id no encontrado: " + userDTO.getIdUser());
+        }
+        Users user = service.update(mapper.map(userDTO, Users.class));
+        UsersDTO dto = mapper.map(user, UsersDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception {
-        Users users = service.readById(id);
-        if (users == null) {
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
+        Users user = service.readById(id);
+        if(user == null){
             throw new ModelNotFoundException("Id no encontrado: " + id);
         }
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
     }
+
+
+
 
 }
 

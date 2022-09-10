@@ -22,7 +22,7 @@ public class Transaction {
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "idMovements", nullable = false, referencedColumnName = "idEnterprise")
+    @JoinColumn(name = "enterpriseMovements", nullable = false, referencedColumnName = "idEnterprise")
     private Enterprise enterprise;
 
     @Column(name="createdAt",nullable = false)

@@ -19,8 +19,9 @@ public class UsersDTO {
     @Min(1)
     @Max(999)
     private Long idUser;
-
-    private Enterprise enterprise;
-
+    private EnterpriseDTO Enterprise;
+    private String name;
+    private Long password;
     private RoleName rolename;
+    private boolean enabled;
 }

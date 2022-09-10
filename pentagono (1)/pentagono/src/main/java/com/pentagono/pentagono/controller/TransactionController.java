@@ -40,16 +40,16 @@ public class TransactionController {
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
-    @PutMapping
+    /*@PutMapping
     public ResponseEntity<TransactionDTO> update(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
-        Transaction tr = service.readById(transactionDTO.getIdTransaction());
+        Transaction tr = service.readById(transactionDTO.getIdTransaction().get());
         if(tr == null) {
-            throw new ModelNotFoundException("ID NOT FOUND: " + transactionDTO.getIdTransaction());
+            throw new ModelNotFoundException("ID NOT FOUND: " + transactionDTO.getTransaction());
         }
         Transaction transaction = service.update(mapper.map(transactionDTO, Transaction.class));
         TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception {

@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface IEmployeeRepository extends IGenericRepository<Employee, Long>{
-    List<Employee> findByNameLike(String name);
-    List<Employee> findByName(String name);
+    /*List<Employee> findByNameLike(String name);
+    List<Employee> findByName(String name);*/
 }

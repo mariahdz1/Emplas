@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
 @RequestMapping("employees")
 public class EmployeeController {
@@ -28,7 +29,7 @@ public class EmployeeController {
     @GetMapping
     public ResponseEntity<List<EmployeeDTO>> readAll() throws Exception{
         List<EmployeeDTO> list = service.readAll().stream()
-                .map(c -> mapper.map(c, EmployeeDTO.class))
+                .map(l -> mapper.map(l, EmployeeDTO.class))
                 .collect(Collectors.toList());
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
@@ -42,10 +43,10 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
 
-    public ResponseEntity<EmployeeDTO> readById(@PathVariable("id") Long idEmployee) throws Exception{
-        Employee empl = service.readById(idEmployee);
+    public ResponseEntity<EmployeeDTO> readById(@PathVariable("id") Long id) throws Exception{
+        Employee empl = service.readById(id);
         if(empl == null){
-            throw new ModelNotFoundException("Id del Empleado Nº: " + idEmployee + " No fue encontrado");
+            throw new ModelNotFoundException("Id del Empleado Nº: " + id + " No fue encontrado");
         }
         EmployeeDTO dto = mapper.map(empl, EmployeeDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
@@ -71,4 +72,5 @@ public class EmployeeController {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }

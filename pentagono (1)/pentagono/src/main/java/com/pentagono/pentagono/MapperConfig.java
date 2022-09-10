@@ -20,18 +20,30 @@ public class MapperConfig {
     }
 
     @Bean("employeeMapper")
-    public ModelMapper employeeMapper(){
-        return new ModelMapper();
-    }
+    public ModelMapper employeeMapper(){return new ModelMapper();}
+
 
     @Bean("transactionMapper")
     public ModelMapper transactionMapper(){ return new ModelMapper();}
 
-    @Bean("transactionDetailMapper")
-    public ModelMapper transactionDetailMapper(){ return new ModelMapper();}
 
     @Bean("usersMapper")
-    public ModelMapper userInfoMapper(){ return new ModelMapper();}
+    public ModelMapper usersMapper(){ return new ModelMapper();}
 
 
 }
+
+/*
+        TypeMap<EmployeeDTO, Employee> typeMap = mapper.createTypeMap(EmployeeDTO.class,Employee.class);
+        typeMap.addMapping(EmployeeDTO::getIdEmployee, Employee::setIdEmployee);
+        typeMap.addMapping(EmployeeDTO::getName, Employee::setName);
+        typeMap.addMapping(EmployeeDTO::getIdEmployee, Employee::setEnterprise);
+        return mapper;}*/
+/*
+        ModelMapper mapper = new ModelMapper();
+        TypeMap<EmployeeDTO, Employee> typeMap = mapper.createTypeMap(EmployeeDTO.class, Employee.class);
+        typeMap.addMapping(EmployeeDTO::getEnterprise, (dest, v) -> dest.getEnterprise().setIdEnterprise((Integer)v));
+        return mapper;
+    }*/
+ /*@Bean("transactionDetailMapper")
+    public ModelMapper transactionDetailMapper(){ return new ModelMapper();}*/

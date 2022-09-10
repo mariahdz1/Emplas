@@ -1,13 +1,9 @@
 package com.pentagono.pentagono.controller;
 
 import com.pentagono.pentagono.dto.EnterpriseDTO;
-import com.pentagono.pentagono.dto.TransactionDTO;
-import com.pentagono.pentagono.dto.UsersDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
 import com.pentagono.pentagono.model.Enterprise;
-import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.service.IEnterpriseService;
-import net.bytebuddy.asm.Advice;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -76,7 +72,7 @@ public class EnterpriseController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/find/name/{param}")
+    @GetMapping("/find/name/{param}")/*FUNCIONAL*/
     public ResponseEntity<List<EnterpriseDTO>> findByName(@PathVariable("param") String param) throws Exception
     {
         List<EnterpriseDTO> list = service.findByName(param).stream()
@@ -85,7 +81,7 @@ public class EnterpriseController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/find/name/like/{param}")
+    @GetMapping("/find/name/like/{param}")/*FUNCIONAL*/
     public ResponseEntity<List<EnterpriseDTO>> findByNameLike(@PathVariable("param") String param) throws Exception
     {
         List<EnterpriseDTO> list = service.findByNameLike(param).stream()
@@ -94,18 +90,5 @@ public class EnterpriseController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    /*@DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) throws Exception{
-        service.delete(id);
-    }
-    post
-    /*public Enterprise create(@RequestBody Enterprise enterprise) throws Exception{
-        return (Enterprise) service.create(enterprise);
-    }
-    @PutMapping
-    public Enterprise update(@RequestBody Enterprise enterprise) throws Exception {
-        return service.update(enterprise);
-    }
-     */
 
 }

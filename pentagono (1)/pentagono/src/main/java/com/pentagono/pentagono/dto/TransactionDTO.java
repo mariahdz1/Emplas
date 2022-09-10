@@ -1,5 +1,6 @@
 package com.pentagono.pentagono.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.pentagono.pentagono.model.Employee;
 import com.pentagono.pentagono.model.TransactionDetail;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -17,16 +19,14 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransactionDTO {
 
-    @Min(1)
-    @Max(999)
     private long idTransaction;
-
-    private Employee employee;
-
-    private String concept;
-
+    private EmployeeDTO employee;
+    private EnterpriseDTO enterprise;
+    private Date createdAt;
+    private Date updatedAt;
+    private float balance;
     private boolean enabled;
+    private List<TransactionDetailDTO>details;
 
-    private List<TransactionDetailDTO> details;
 
 }

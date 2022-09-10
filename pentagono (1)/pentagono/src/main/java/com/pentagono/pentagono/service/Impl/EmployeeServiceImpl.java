@@ -1,7 +1,6 @@
 package com.pentagono.pentagono.service.Impl;
 
 import com.pentagono.pentagono.model.Employee;
-import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.repository.IEmployeeRepository;
 import com.pentagono.pentagono.repository.IGenericRepository;
 import com.pentagono.pentagono.service.IEmployeeService;
@@ -18,7 +17,7 @@ public class EmployeeServiceImpl extends CRUDImpl<Employee, Long> implements IEm
     @Override
     protected IGenericRepository<Employee, Long> getRepo(){ return repo; }
 
-    @Override
+    /*@Override
     public List<Employee> findByName(String name) {
         return repo.findByName(name);
     }
@@ -26,5 +25,5 @@ public class EmployeeServiceImpl extends CRUDImpl<Employee, Long> implements IEm
     @Override
     public List<Employee> findByNameLike(String name) {
         return repo.findByNameLike("%" + name + "%");
-    }
+    }*/
 }

@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 public class TransactionDetailDTO {
 
     @JsonIgnore
+    private Long idTransactionDetail;
     private TransactionDTO transaction;
-
+    private String concept;
     private Long amount;
+
 
 }

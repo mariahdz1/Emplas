@@ -8,6 +8,7 @@ import com.pentagono.pentagono.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -15,16 +16,16 @@ public class TransactionServiceImpl extends CRUDImpl <Transaction, Long> impleme
     @Autowired
     private ITransactionRepository repo;
 
+    @Transactional
     @Override
     public Transaction saveTransactional(Transaction transaction, List<TransactionDetail> details) {
-        return null;
-    }
+        details.forEach(d -> d.setTransaction(transaction));
+        transaction.setDetails(details);
+        return repo.save(transaction);  }
 
     @Override
     protected IGenericRepository<Transaction, Long> getRepo() {
-        return null;
+        return repo;
     }
 
-    /*@Override
-    protected IGenericRepository<Transaction, Long> getRepo() {return null;}*/
 }

@@ -1,18 +1,18 @@
 package com.pentagono.pentagono.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.pentagono.pentagono.model.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
 import javax.validation.constraints.*;
 import java.util.Date;
-import java.util.List;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EnterpriseDTO {
 
     @Min(1)
