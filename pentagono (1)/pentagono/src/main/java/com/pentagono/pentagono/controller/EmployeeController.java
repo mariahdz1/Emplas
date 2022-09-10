@@ -63,6 +63,17 @@ public class EmployeeController {
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<EmployeeDTO> updatePatch(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
+        Employee empl = service.readById(employeeDto.getIdEmployee());
+        if(empl == null){
+            throw new ModelNotFoundException("Id del Empleado no encontrado: " + employeeDto.getIdEmployee());
+        }
+        Employee employee = service.update(mapper.map(employeeDto, Employee.class));
+        EmployeeDTO dto = mapper.map(employee, EmployeeDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
         Employee empl = service.readById(id);

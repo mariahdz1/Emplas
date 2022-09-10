@@ -1,7 +1,9 @@
 package com.pentagono.pentagono.controller;
 
+import com.pentagono.pentagono.dto.EmployeeDTO;
 import com.pentagono.pentagono.dto.EnterpriseDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
+import com.pentagono.pentagono.model.Employee;
 import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.service.IEnterpriseService;
 import org.modelmapper.ModelMapper;
@@ -62,6 +64,16 @@ public class EnterpriseController {
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<EnterpriseDTO> updatePatch(@Valid @RequestBody EnterpriseDTO enterpriseDto) throws Exception{
+        Enterprise ent = service.readById(enterpriseDto.getIdEnterprise());
+        if(ent == null){
+            throw new ModelNotFoundException("Id del Empleado no encontrado: " + enterpriseDto.getIdEnterprise());
+        }
+        Enterprise enterprise = service.update(mapper.map(enterpriseDto, Enterprise.class));
+        EnterpriseDTO dto = mapper.map(enterprise, EnterpriseDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.OK);
+    }
     @DeleteMapping("/{id}")/*FUNCIONAL*/
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
         Enterprise ent = service.readById(id);
