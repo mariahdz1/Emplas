@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="70100a94-8ea1-4d37-8f5f-3a040e065217" name="Supabase" url="jdbc:postgresql://db.yroyczbmpmdygiemamcp.supabase.co/postgres" driverClass="org.postgresql.Driver" />
+    </data-sources>
+    <data-source-infos>
+      <data-source-info id="70100a94-8ea1-4d37-8f5f-3a040e065217" persistence-unit-name="Default" />
+    </data-source-infos>
+  </component>
+</project>

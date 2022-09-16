@@ -1,6 +1,6 @@
 package com.pentagono.pentagono.controller;
 
-import com.pentagono.pentagono.service.Impl.dto.EmployeeDTO;
+import com.pentagono.pentagono.dto.EmployeeDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
 import com.pentagono.pentagono.model.Employee;
 import com.pentagono.pentagono.service.IEmployeeService;
@@ -62,7 +62,7 @@ public class EmployeeController {
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping/*("/{id}")*/
     public ResponseEntity<EmployeeDTO> updatePatch(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
         Employee empl = service.readById(employeeDto.getIdEmployee());
         if(empl == null){

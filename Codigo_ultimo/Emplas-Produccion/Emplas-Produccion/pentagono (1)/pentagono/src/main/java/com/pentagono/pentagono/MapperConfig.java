@@ -1,9 +1,9 @@
 package com.pentagono.pentagono;
 
 import com.pentagono.pentagono.model.Users;
-import com.pentagono.pentagono.service.Impl.dto.EnterpriseDTO;
+import com.pentagono.pentagono.dto.EnterpriseDTO;
 import com.pentagono.pentagono.model.Enterprise;
-import com.pentagono.pentagono.service.Impl.dto.UsersDTO;
+import com.pentagono.pentagono.dto.UsersDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.springframework.context.annotation.Bean;

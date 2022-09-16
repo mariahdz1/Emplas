@@ -1,6 +1,6 @@
 package com.pentagono.pentagono.controller;
 
-import com.pentagono.pentagono.service.Impl.dto.TransactionDTO;
+import com.pentagono.pentagono.dto.TransactionDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
 import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.service.ITransactionService;

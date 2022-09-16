@@ -1,7 +1,6 @@
 package com.pentagono.pentagono.controller;
 
-import com.pentagono.pentagono.service.Impl.dto.EnterpriseDTO;
-import com.pentagono.pentagono.service.Impl.dto.UsersDTO;
+import com.pentagono.pentagono.dto.UsersDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
 import com.pentagono.pentagono.model.Users;
 import com.pentagono.pentagono.service.IUsersService;
