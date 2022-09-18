@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Emplas S.A</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <h1>Lista de Empleados</h1>
+    <table border="1" class=""table table-striped table-responsive-md>
+        <thead>
+        <tr>
+            <th>Empresa del Empleado</th>
+            <th>Identificación del Empleado</th>
+            <th>Email del Empleado</th>
+            <th>Teléfono del Empleado</th>
+            <th>Nombre del Empleado</th>
+            <th>Foto del Empleado</th>
+            <th>Fecha de creación</th>
+            <th>Fecha de modificación</th>
+        </tr>
+        </thead>
+        <body>
+        <tr th:each="employee : ${listEmployee}">
+            <td> th:text="${employee.enterprise}"</td>
+            <td> th:text="${employee.identification}"</td>
+            <td> th:text="${employee.email}"</td>
+            <td> th:text="${employee.phone}"</td>
+            <td> th:text="${employee.name}"</td>
+            <td> th:text="${employee.image}"</td>
+            <td> th:text="${employee.createdAt}"</td>
+            <td> th:text="${employee.updatedAt}"</td>
+        </tr>
+        </body>
+    </table>
+</div>
+</body>
+</html>
