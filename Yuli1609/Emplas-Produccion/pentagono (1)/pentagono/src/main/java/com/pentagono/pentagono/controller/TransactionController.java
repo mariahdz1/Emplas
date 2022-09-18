@@ -18,47 +18,52 @@ import java.util.stream.Collectors;
 @RequestMapping("transactions")
 public class TransactionController {
     @Autowired
-    private ITransactionService service;
+    private ITransactionService iTransactionService;
 
     @Autowired
     @Qualifier("transactionMapper")
     private ModelMapper mapper;
 
-    @GetMapping
+    /*@GetMapping
     public ResponseEntity<List<TransactionDTO>> readAll() throws Exception{
-        List<TransactionDTO> list = service.readAll().stream()
+        List<TransactionDTO> list = iTransactionService.readAll().stream()
                 .map(t -> mapper.map(t, TransactionDTO.class))
                 .collect(Collectors.toList());
         return new ResponseEntity <>(list, HttpStatus.OK);
-    }
+    }*/
 
     @PostMapping
     public ResponseEntity<TransactionDTO> create(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
         Transaction t = mapper.map(transactionDTO, Transaction.class);
-        Transaction sale = service.saveTransactional(t, t.getDetails());
+        Transaction sale = iTransactionService.saveTransactional(t, t.getDetails());
         TransactionDTO dto = mapper.map(sale, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
     /*@PutMapping
     public ResponseEntity<TransactionDTO> update(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
-        Transaction tr = service.readById(transactionDTO.getIdTransaction().get());
+        Transaction tr = iTransactionService.readById(transactionDTO.getDetails().get(long idTransaction);
         if(tr == null) {
-            throw new ModelNotFoundException("ID NOT FOUND: " + transactionDTO.getTransaction());
+            throw new ModelNotFoundException("ID NOT FOUND: " + transactionDTO.getDetails());
         }
-        Transaction transaction = service.update(mapper.map(transactionDTO, Transaction.class));
+        Transaction transaction = iTransactionService.update(mapper.map(transactionDTO, Transaction.class));
         TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }*/
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception {
-        Transaction transaction = service.readById(id);
+        Transaction transaction = iTransactionService.readById(id);
         if(transaction == null) {
             throw new ModelNotFoundException("ID NOT FOUND: " + id);
         }
-        service.delete(id);
+        iTransactionService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/{id}")
+    public Transaction readById(@PathVariable("id") Long id) throws Exception {
+        return iTransactionService.readById(id);
     }
 
     /*@PostMapping
@@ -67,10 +72,7 @@ public class TransactionController {
     }
 
 
-    @GetMapping("/{id}")
-    public Transaction readById(@PathVariable("id") Long id) throws Exception {
-        return service.readById(id);
-    }
+
 
     @PutMapping
     public Transaction update(@RequestBody Transaction transaction) throws Exception {

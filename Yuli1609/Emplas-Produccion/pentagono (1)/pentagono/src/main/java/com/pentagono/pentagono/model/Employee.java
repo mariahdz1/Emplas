@@ -31,7 +31,7 @@ public class Employee {
     @Column(name="name",length=80,nullable = false)
     private String name;
 
-    @Column(name = "image", length=500)
+    @Column(name = "image")
     private String image;
 
     @Column(name="createdAt")
