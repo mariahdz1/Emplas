@@ -107,6 +107,11 @@ public class EmployeeController {
         Employee employee = new Employee();
         model.addAttribute("Employee",employee);
         return "new_employee";
-    }*/
+    }
+  clase mintic thymeleaf
+    @GetMapping List<Employee> getUsers(){return iEmployeeService.getAllEmployees();}}
+
+    @PostMapping
+    public Employee createUser(@RequestBody Employee employee){return iEmployeeService.createUser(employee);}*/
 
 }

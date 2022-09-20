@@ -24,9 +24,7 @@ public class EmployeeServiceImpl extends CRUDImpl<Employee, Long> implements IEm
 
 /*metodos nuevos*/
     @Override
-    public List<Employee> getAllEmployees() {
-        return iEmployeeRepository.findAll();
-    }
+    public List<Employee> getAllEmployees() {return (List<Employee>) this.iEmployeeRepository.findAll();}
 
     @Override
     public void saveEmployee(Employee employee) {
@@ -66,5 +64,12 @@ public class EmployeeServiceImpl extends CRUDImpl<Employee, Long> implements IEm
     public List<Employee> findByNameLike(String name) {
         return repo.findByNameLike(name);
     }
+
+    @Override
+    public Employee create(Employee employee) {
+        return this.iEmployeeRepository.save(employee);
+    }
+
+
 
 }

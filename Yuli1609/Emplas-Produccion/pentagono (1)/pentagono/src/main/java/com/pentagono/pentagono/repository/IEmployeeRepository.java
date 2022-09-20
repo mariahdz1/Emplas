@@ -12,4 +12,5 @@ public interface IEmployeeRepository extends IGenericRepository<Employee, Long>{
 
     List<Employee> findByName(String name);
 
+
 }
