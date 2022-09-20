@@ -90,21 +90,22 @@
 <br>
 <div class ="titulo" style="margin: 20px; display: flex; align-items: center; justify-content: center;">
 
-  <h2><strong>Ver empleados de Emplas</strong></h2>
+  <h2><strong>Ver empresas asociadas</strong></h2>
 </div>
 <div class="container" >
-  <div class="table empleados" style="background-color: #1F76BA; color: #fff"></div>
+  <div class="table empleados" style="background-color: #1F76BA; color: #fff;"></div>
   <div class="row">
     <div class="col-12">
       <table class="table">
         <thead>
 
         <tr class="tabla" style="background-color: #1F76BA; color: #fff">
-          <th scope="col">#</th>
-          <th scope="col">Identificación</th>
-          <th scope="col">Nombre </th>
+          <th scope="col">ID</th>
+          <th scope="col">Nit</th>
+          <th scope="col">Nombre empresa </th>
           <th scope="col">Telefono</th>
-          <th scope="col">Rol</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Fecha de creación</th>
           <th scope="col"></th>
           <th scope="col"></th>
 
@@ -114,32 +115,15 @@
         <tbody>
         <tr class="table-secondary">
           <th scope="row">1</th>
-          <td>colocar id</td> <!-- Id no sé si queda True, validar si se elimina la casilla o es id automático -->
-          <td>colocar nombre </td> <!-- PATCH Nombre -->
+          <td>colocar nit</td> <!-- Id no sé si queda True, validar si se elimina la casilla o es id automático -->
+          <td>enterprise name </td> <!-- PATCH Nombre -->
           <td>colocar tel</td> <!-- PATCH tel -->
-          <td>colocar rol</td><!-- PATCH Asigación de rol Validar intentar con True -->
+          <td>colocar dirección</td><!-- PATCH Asigación de rol Validar intentar con True -->
+          <td>dd/mm/aa </td>
           <td><button type="button" class="btn btn-primary" style="background-color: #1F76BA; color: #fff;">Modificar</button></td><!-- Botón para volver al formulario y modificar -->
           <td><button type="button" class="btn btn-danger">Eliminar</button></td><!-- botón DEL -->
         </tr>
-        <tr> <!-- Estos son ejemplos creados para visualizar la tabla,
-               eliminar cuando se haga la conexion -->
-          <th scope="row">2</th>
-          <td>1057265654</td>
-          <td>Sofia Lemus</td>
-          <td>3124103542</td>
-          <td>Operario</td>
-          <td><button type="button" class="btn btn-primary">Modificar</button></td>
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr class="table-secondary">
-          <th scope="row">3</th>
-          <td>1057265410</td>
-          <td>Sofia Jaramillo</td>
-          <td>3124562125</td>
-          <td>Operario</td>
-          <td><button type="button" class="btn btn-primary">Modificar</button></td>
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
+
         </tbody>
 
       </table>
