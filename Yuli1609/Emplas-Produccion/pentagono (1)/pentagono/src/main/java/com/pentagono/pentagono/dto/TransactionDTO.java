@@ -21,7 +21,8 @@ public class TransactionDTO {
     private Date updatedAt;
     private long balance;
     private boolean enabled;
-    private List<TransactionDetailDTO>details;
+    private String concept;/*lINA CAMBIO DE LIST*/
+    private float amount;/*LINA*/
 
 
 }

@@ -24,64 +24,63 @@ public class TransactionController {
     @Qualifier("transactionMapper")
     private ModelMapper mapper;
 
-    /*@GetMapping
-    public ResponseEntity<List<TransactionDTO>> readAll() throws Exception{
+    @GetMapping
+    public ResponseEntity<List<TransactionDTO>> readAll() throws Exception {
         List<TransactionDTO> list = iTransactionService.readAll().stream()
                 .map(t -> mapper.map(t, TransactionDTO.class))
                 .collect(Collectors.toList());
-        return new ResponseEntity <>(list, HttpStatus.OK);
-    }*/
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
-    @PostMapping
+    @PostMapping/*Lina*/
     public ResponseEntity<TransactionDTO> create(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
-        Transaction t = mapper.map(transactionDTO, Transaction.class);
-        Transaction sale = iTransactionService.saveTransactional(t, t.getDetails());
-        TransactionDTO dto = mapper.map(sale, TransactionDTO.class);
+        Transaction t = iTransactionService.create(mapper.map(transactionDTO, Transaction.class));
+        TransactionDTO dto = mapper.map(t, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
-    /*@PutMapping
+
+    @PutMapping
     public ResponseEntity<TransactionDTO> update(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
-        Transaction tr = iTransactionService.readById(transactionDTO.getDetails().get(long idTransaction);
-        if(tr == null) {
-            throw new ModelNotFoundException("ID NOT FOUND: " + transactionDTO.getDetails());
+        Transaction tr = iTransactionService.readById(transactionDTO.getIdTransaction());
+        if (tr == null) {
+            throw new ModelNotFoundException("ID NOT FOUND IN EMPLAS ENTERPRISE: " + transactionDTO.getIdTransaction());
         }
         Transaction transaction = iTransactionService.update(mapper.map(transactionDTO, Transaction.class));
         TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
-    }*/
+    }
+
+    @PatchMapping/*lINA*/
+    public ResponseEntity<TransactionDTO> updatePatch(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
+        Transaction tr = iTransactionService.readById(transactionDTO.getIdTransaction());
+        if (tr == null) {
+            throw new ModelNotFoundException("ID NOT FOUND IN EMPLAS ENTERPRISE: " + transactionDTO.getIdTransaction());
+        }
+        Transaction transaction = iTransactionService.update(mapper.map(transactionDTO, Transaction.class));
+        TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception {
         Transaction transaction = iTransactionService.readById(id);
-        if(transaction == null) {
+        if (transaction == null) {
             throw new ModelNotFoundException("ID NOT FOUND: " + id);
         }
         iTransactionService.delete(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public Transaction readById(@PathVariable("id") Long id) throws Exception {
-        return iTransactionService.readById(id);
+    public ResponseEntity<TransactionDTO> readById(@PathVariable("id") Long id) throws Exception {
+        Transaction t = iTransactionService.readById(id);
+        if (t == null) {
+            throw new ModelNotFoundException("ID NOT FOUND: " + id);
+        }
+        TransactionDTO dto = mapper.map(t, TransactionDTO.class);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    /*@PostMapping
-    public Transaction create(@RequestBody Transaction transaction) throws Exception{
-        return (Transaction) service.create(transaction);
-    }
-
-
-
-
-    @PutMapping
-    public Transaction update(@RequestBody Transaction transaction) throws Exception {
-        return service.update(transaction);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) throws Exception{
-        service.delete(id);
-    }*/
 
 }

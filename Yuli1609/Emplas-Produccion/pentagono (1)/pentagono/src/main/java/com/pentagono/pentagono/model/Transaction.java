@@ -31,7 +31,13 @@ public class Transaction {
     @Column(name="updateAt",nullable = false)
     private Date updatedAt;
 
-    @Column(name="balance",/*columnDefinition = "decimal(5,2)",*/length=50)
+    @Column(precision=8, scale=2, nullable = false)
+    private float amount;/*LINA*/
+
+    @Column(name="concept", length=255, nullable = false)
+    private String concept;/*LINA*/
+
+    @Column(name="balance",length=50)
     private long balance;
 
     @Column(nullable = false)
