@@ -72,8 +72,8 @@
               Movimientos
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="VerMovimiento.html">Ver</a></li>
-              <li><a class="dropdown-item" href="CrearMovimiento.html">Agregar</a></li>
+              <li><a class="dropdown-item" href="see_transactions.html">Ver</a></li>
+              <li><a class="dropdown-item" href="new_transactions.html">Agregar</a></li>
 
             </ul>
           </li>
@@ -90,7 +90,7 @@
 <br>
 <div class ="titulo" style="margin: 20px; display: flex; align-items: center; justify-content: center;">
 
-  <h2><strong>Ver empresas asociadas</strong></h2>
+  <h2><strong>Movimientos realizados</strong></h2>
 </div>
 <div class="container" >
   <div class="table empleados" style="background-color: #1F76BA; color: #fff;"></div>
@@ -100,28 +100,28 @@
         <thead>
 
         <tr class="tabla" style="background-color: #1F76BA; color: #fff">
-          <th scope="col">ID</th>
-          <th scope="col">Nit</th>
-          <th scope="col">Nombre empresa </th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Dirección</th>
-          <th scope="col">Fecha de creación</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
 
+          <th scope="col">Nombre empresa </th>
+          <th scope="col">Monto</th>
+          <th scope="col">Concepto</th>
+          <th scope="col">Fecha </th>
+          <th scope="col">Empleado</th>
+          <th scope="col">Movimiento</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="tablas">
         <tr class="table-secondary">
-          <th scope="row">1</th>
-          <td>colocar nit</td> <!-- Id no sé si queda True, validar si se elimina la casilla o es id automático -->
-          <td>enterprise name </td> <!-- PATCH Nombre -->
-          <td>colocar tel</td> <!-- PATCH tel -->
-          <td>colocar dirección</td><!-- PATCH Asigación de rol Validar intentar con True -->
-          <td>dd/mm/aa </td>
-          <td><button type="button" class="btn btn-primary" style="background-color: #1F76BA; color: #fff;">Modificar</button></td><!-- Botón para volver al formulario y modificar -->
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td><!-- botón DEL -->
+          <td>Nombre empresa</td>
+          <td>$550.000</td> <!-- Monto -->
+          <td>Compra de equipos comerciales </td> <!-- concepto -->
+          <td>dd/mm/aa</td> <!-- fecha -->
+          <td>colocar dirección</td><!-- adress -->
+          <td>Ingreso o egreso </td>
+          <td><button type="button" class="btn btn-primary">Modificar</button></td><!-- Botón para volver al formulario y modificar -->
+
         </tr>
 
         </tbody>
