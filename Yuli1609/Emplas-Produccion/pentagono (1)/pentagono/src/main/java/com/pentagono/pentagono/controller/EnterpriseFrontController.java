@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")/*llama al HOME*/
-public class EnterpriseFrontController {
+@RequestMapping("/")/*llama al
+ roller {
 
     @Autowired
     private IEnterpriseService iEnterpriseService;

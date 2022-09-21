@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en"xmlns:th="https://www.thymeleaf.org/">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,9 +48,9 @@
                     </li>
 
                     <li class="nav-item dropdown" >
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#ffff;">
-                            Empresas </a>
-
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEmpresa" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#ffff;">
+                            Empresas
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="see_enterprise.html">Ver</a></li>
                             <li><a class="dropdown-item" href="new_enterprise.html">Crear</a></li>
@@ -58,7 +58,7 @@
                         </ul>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#ffff;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#ffff;">
                             Empleados
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
@@ -68,12 +68,12 @@
                         </ul>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffff;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownA" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffff;">
                             Movimientos
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="VerMovimiento.html">Ver</a></li>
-                            <li><a class="dropdown-item" href="CrearMovimiento.html">Agregar</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownA">
+                            <li><a class="dropdown-item" href="see_transaction.html">Ver</a></li>
+                            <li><a class="dropdown-item" href="new_transaction.html">Agregar</a></li>
 
                         </ul>
                     </li>
@@ -88,54 +88,66 @@
 
 <body>
 
-<div class="formularioUsuario" style="margin-left: 10%; margin-top:2%;">
+
+<div class="formularioMovimiento" style="margin-left: 10%; margin-top:2%;">
 
     <div class="row">
-        <h3> <strong>Crear empleado </strong></h3>
+        <h3><strong>Nuevo movimiento</strong> </h3>
         <div class="col-4">
 
             <form>
                 <div class="form-group" style="margin-top: 30px;">
-                    <label for="exampleInputEmail1"><strong>Documento de Identificación</strong></label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="Enter email">
+
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="exampleInputPassword1"><strong>Nombre</strong></label>
-                    <input type="name1" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Nombre">
+                    <label for="exampleInputPassword1"><strong>Empresa</strong></label>
+                    <input type="Empresa" class="form-control" id="empresa" placeholder="Nombre de la empresa">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="exampleInputPassword1"><strong>Teléfono</strong></label>
-                    <input type="tel" class="form-control" id="exampleInputPassword2" placeholder="ingrese teléfono">
+                    <label for="exampleInputPassword1"><strong>Monto</strong></label>
+                    <input type="monto" class="form-control" id="monto" placeholder="Ingrese Valor $">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="exampleInputPassword1"><strong>Perfil</strong></label>
-                    <input type="directive" class="form-control" id="exampleInputPassword" placeholder="Ingrese perfil">
+                    <label for="exampleInputPassword1"><strong>Concepto</strong></label>
+                    <input type="concept" class="form-control" id="concepto" placeholder="Ingrese Concepto">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="exampleInputPassword1"><strong>Rol</strong></label>
-                    <input type="directive" class="form-control" id="exampleInputPassword3" placeholder="Ingrese Rol">
+                    <label for="exampleInputPassword1"><strong>Fecha</strong></label>
+                    <input type="movimiento" class="form-control" id="exampleInputPassword1" placeholder="seleccione fecha">
                 </div>
                 <br>
-                <br>
-                <button type="submit" class="btn btn-primary" style="width:100%; background-color:#1F76BA; position: cent;">
-                    Agregar usuario
+                <h6><strong>Tipo de movimiento</strong></h6>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Ingreso
+                    </label>
+                    <div class="form-check" style="float: right; margin-right: 60%;">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Egreso
+                        </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; background-color:#1F76BA; margin-top:40px;">
+                    Agrega Movimiento
                 </button>
             </form>
-
+            <br>
         </div>
-        <div class="col-5 ">
-
-            <img src="Imagenes/imagen empresa.svg" style="margin-left: 200px ;"  alt="imagen empresa">
-
-        </div>
-
 
     </div>
+    <div class="col-8">
+
+        <img src="Imagenes/Nuevo Movimiento.svg" style="margin-left:10%; margin-top:50px" alt="imagen empresa">
+    </div>
+
+</div>
 
 </body>
 </html>
