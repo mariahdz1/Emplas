@@ -7,18 +7,23 @@ import com.pentagono.pentagono.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/transactionsf")
 public class TransactionFrontController {
 
     @Autowired
     private ITransactionService iTransactionService;
+
+    @GetMapping
+    public List<Transaction> getTransaction(){return iTransactionService.getAllTransactions();}
+
+    @PostMapping
+    public Transaction createTransaction(@RequestBody Transaction transaction){return iTransactionService.createTransaction(transaction);}
 
     @RequestMapping(value = "/transactionsf", method = RequestMethod.GET)/*Ver Transacciones*/
     public String transactions(Model model) {

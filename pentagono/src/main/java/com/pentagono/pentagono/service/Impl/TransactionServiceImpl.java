@@ -18,12 +18,15 @@ public class TransactionServiceImpl extends CRUDImpl <Transaction, Long> impleme
     @Autowired
     private ITransactionRepository iTransactionRepository;
 
+    public List<Transaction> getAllTransactions() {return (List<Transaction>) this.iTransactionRepository.findAll();}
+
+    public Transaction createTransaction(Transaction transaction) {
+        return this.iTransactionRepository.save(transaction);
+    }
+
+
     @Autowired
     private ITransactionRepository repo;
-
-    public List<Transaction> getAllTransactions() {
-        return (List<Transaction>) this.iTransactionRepository.findAll();
-    }
 
     @Override
     public void saveTransaction(Transaction transaction) {
@@ -44,8 +47,6 @@ public class TransactionServiceImpl extends CRUDImpl <Transaction, Long> impleme
         return null;
     }
 
-    public Transaction create(Transaction transaction) {
-        return this.iTransactionRepository.save(transaction);
-    }
+
 }
 

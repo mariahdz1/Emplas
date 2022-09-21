@@ -2,10 +2,13 @@ package com.pentagono.pentagono.controller;
 
 import com.pentagono.pentagono.model.Employee;
 import com.pentagono.pentagono.model.Enterprise;
+import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,6 +28,8 @@ public class EmployeeFrontController {
         return "see_employee";
     }
 
+    @PostMapping
+    public Employee createEmployee(@RequestBody Employee employee){return iEmployeeService.createEmployee(employee);}
 
 
 }

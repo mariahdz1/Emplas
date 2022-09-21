@@ -36,14 +36,14 @@ public class EmployeeServiceImpl extends CRUDImpl<Employee, Long> implements IEm
 
     }
 
+    @Override
+    public Employee createEmployee(Employee employee) {
+        return this.iEmployeeRepository.save(employee);
+    }
 
     @Override
     protected IGenericRepository<Employee, Long> getRepo() {
         return null;
-    }
-
-    public Employee create(Employee employee) {
-        return this.iEmployeeRepository.save(employee);
     }
 
 

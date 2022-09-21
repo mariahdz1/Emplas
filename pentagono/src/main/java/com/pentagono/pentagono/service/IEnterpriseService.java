@@ -15,5 +15,5 @@ public interface IEnterpriseService extends ICRUD<Enterprise, Long> {
     void deleteEnterpriseById(Long id);
 
 
-
+    Enterprise createEnterprise(Enterprise enterprise);
 }

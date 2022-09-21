@@ -1,11 +1,14 @@
 package com.pentagono.pentagono.controller;
 
+import com.pentagono.pentagono.model.Employee;
 import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.service.IEmployeeService;
 import com.pentagono.pentagono.service.IEnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -26,4 +29,8 @@ public class EnterpriseFrontController {
         model.addAttribute("enterprisesf",enterprises);
         return "see_enterprise";
     }
+
+    @PostMapping
+    public Enterprise createEnterprise(@RequestBody Enterprise enterprise){return iEnterpriseService.createEnterprise(enterprise);}
+
 }

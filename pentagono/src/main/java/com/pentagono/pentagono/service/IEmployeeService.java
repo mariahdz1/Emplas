@@ -15,6 +15,5 @@ public interface IEmployeeService extends ICRUD<Employee, Long> {
   void deleteEmployeeById(Long id);
 
 
-
-
-  }
+  Employee createEmployee(Employee employee);
+}

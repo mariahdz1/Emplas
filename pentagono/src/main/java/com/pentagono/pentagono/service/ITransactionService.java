@@ -13,4 +13,6 @@ public interface ITransactionService extends ICRUD<Transaction,Long>{
     void saveTransaction(Transaction transaction);
     Transaction getTransactionById(long id);
     void deleteTransactionById(Long id);
+
+    Transaction createTransaction(Transaction transaction);
 }

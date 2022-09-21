@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e24370bd-253e-448f-ac27-250fc9dd827f" name="Changes" comment="Codigo reconstruido al 21/09/2022 9.54am conectividad Supabase Ok, inicio adición del Front">
+    <list default="true" id="e24370bd-253e-448f-ac27-250fc9dd827f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/controller/EmployeeFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/controller/EmployeeFrontController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/controller/EnterpriseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/controller/EnterpriseFrontController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/controller/TransactionFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/controller/TransactionFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentagono/src/main/resources/templates/new_transaction.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentagono/src/main/resources/templates/see_transaction.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentagono/src/main/resources/templates/see_transactions.html" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/resources/templates/see_transactions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/IEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/IEnterpriseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/IEnterpriseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/ITransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/ITransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/Impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/Impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/Impl/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/java/com/pentagono/pentagono/service/Impl/TransactionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentagono/src/main/resources/templates/see_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/pentagono/src/main/resources/templates/see_employee.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +42,7 @@
     <option name="myId2Visible">
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -77,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663772295234</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Codigo reconstruido al 21/09/2022 3.54pm pagina inicial localhost ok y ver empleado sin llenado">
+      <created>1663793764007</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663793764008</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,6 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Codigo reconstruido al 21/09/2022 9.54am conectividad Supabase Ok, inicio adición del Front" />
-    <option name="LAST_COMMIT_MESSAGE" value="Codigo reconstruido al 21/09/2022 9.54am conectividad Supabase Ok, inicio adición del Front" />
+    <MESSAGE value="Codigo reconstruido al 21/09/2022 3.54pm pagina inicial localhost ok y ver empleado sin llenado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Codigo reconstruido al 21/09/2022 3.54pm pagina inicial localhost ok y ver empleado sin llenado" />
   </component>
 </project>
