@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/")/*llama al HOME*/
+@RequestMapping("/")
 public class TransactionFrontController {
 
     @Autowired
@@ -26,4 +26,6 @@ public class TransactionFrontController {
         model.addAttribute("transactionsf",transactions);
         return "see_transaction";
     }
+
+
 }

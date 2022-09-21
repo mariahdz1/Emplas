@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,7 +100,6 @@
         <thead>
 
         <tr class="tabla" style="background-color: #1F76BA; color: #fff">
-
           <th scope="col">Nombre empresa </th>
           <th scope="col">Monto</th>
           <th scope="col">Concepto</th>
@@ -110,27 +109,64 @@
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
+
+
         </thead>
-
         <tbody class="tablas">
-        <tr class="table-secondary">
-          <td>Nombre empresa</td>
-          <td>$550.000</td> <!-- Monto -->
-          <td>Compra de equipos comerciales </td> <!-- concepto -->
-          <td>dd/mm/aa</td> <!-- fecha -->
-          <td>colocar dirección</td><!-- adress -->
-          <td>Ingreso o egreso </td>
-          <td><button type="button" class="btn btn-primary">Modificar</button></td><!-- Botón para volver al formulario y modificar -->
-
+        <tr th:each="transaction : ${movlist}">
+          <td th:text="${transaction.idTransaction}"></td>
+          <td class="text-right" th:text="${#numbers.formatCurrency(transaction.amount)}"></td>
+          <td th:if="${transaction.concept=='1'}">Arrendamiento</td>
+          <td th:if="${transaction.concept=='2'}">Proveedores</td>
+          <td th:if="${transaction.concept=='3'}">Transportes</td>
+          <td th:if="${transaction.concept=='4'}">Materia_Prima</td>
+          <td th:if="${transaction.concept=='5'}">Personal</td>
+          <td th:text="${transaction.user.name}"></td>
+          <td th:text="${#dates.format(transaction.createdAt, 'dd/MM/yyyy')}"></td>
+          <td><button type="button" class="btn btn-warning"><a th:href="@{/updateTransaction/{idTransaction}(idTransaction=${Transaction.idTransaction})}">Modificar</a></button></td>
+          <td><button type="button" class="btn btn-danger"><a th:href="@{/deleteTransaction/{idTransaction}(idTransaction=${Transaction.idTransaction})}">Eliminar</a></button></td>
         </tr>
-
         </tbody>
-
       </table>
-
       </thead>
-
     </div>
+    <!-- vamos a crear un boton que sirva para agregar nuevos movimientos -->
+    <button type="button" class="btn btn-info"><a th:href="@{/AgregarMovimiento}">Agregar Transacción</a></button>
+    <br><br>
+    <!-- boton que me lleva a la lista de empresas -->
+    <button type="button" class="btn btn-primary"><a th:href="@{/VerEmpresas}">Ver Empresas</a></button>
+    <br><br>
+    <!-- boton que me lleva a la lista de empleados -->
+    <button type="button" class="btn btn-primary"><a th:href="@{/VerEmpleados}">Ver Empleados</a></button>
+  </div>
 
+  <script th:inline="javascript">
+    window.onload=function(){
+
+        var msg= [[${mensaje}]];
+        if (msg == "saveOK"){
+            Command : toastr["success"]("Transacción registrada")
+            }
+        else if (msg == "updateOK"){
+            Command : toastr["success"]("Transacción actualizada")
+        }
+        else if (msg == "deleteOK"){
+            Command : toastr["error"]("Transacción eliminada")
+        }
+        else if (msg == "deleteError"){
+            Command : toastr["error"]("la transacción no pudo ser eliminada!")
+        }
+        toastr.options={
+            "positionClass": "toast-top-right",
+            "showDuration":"300",
+            "showMethod":"fadeIn",
+            "hideMethod":"fadeOut",
+        }
+
+
+    }
+
+</script>
+  </div>
 </body>
 </html>
