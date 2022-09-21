@@ -1,5 +1,6 @@
 package com.pentagono.pentagono.service.Impl;
 
+import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.model.TransactionDetail;
 import com.pentagono.pentagono.repository.IGenericRepository;
@@ -16,16 +17,28 @@ public class TransactionServiceImpl extends CRUDImpl <Transaction, Long> impleme
     @Autowired
     private ITransactionRepository repo;
 
-    @Transactional
-    @Override
-    public Transaction saveTransactional(Transaction transaction, List<TransactionDetail> details) {
-        details.forEach(d -> d.setTransaction(transaction));
-        transaction.setDetails(details);
-        return repo.save(transaction);  }
-
     @Override
     protected IGenericRepository<Transaction, Long> getRepo() {
         return repo;
     }
 
+    @Override
+    public List<Transaction> getAllTransactions() {
+        return null;
+    }
+
+    @Override
+    public void saveTransaction(Transaction transaction) {
+
+    }
+
+    @Override
+    public Enterprise getTransactionById(long id) {
+        return null;
+    }
+
+    @Override
+    public void deleteTransactionById(Long id) {
+
+    }
 }

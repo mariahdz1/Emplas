@@ -19,10 +19,10 @@ public class EnterpriseFrontController {
     private IEnterpriseService iEnterpriseService;
 
 
-    @RequestMapping(value = "/enterprisesForm", method = RequestMethod.GET)/*Ver Empresas*/
+    @RequestMapping(value = "/enterprisesf", method = RequestMethod.GET)/*Ver Empresas*/
     public String enterprises(Model model) {
         List<Enterprise> enterprises = this.iEnterpriseService.getAllEnterprises();
-        model.addAttribute("employees",enterprises);
-        return "VerEmpresa";
+        model.addAttribute("enterprisesf",enterprises);
+        return "see_enterprise";
     }
 }

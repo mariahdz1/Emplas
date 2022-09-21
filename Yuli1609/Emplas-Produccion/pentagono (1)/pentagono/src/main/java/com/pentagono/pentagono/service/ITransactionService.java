@@ -8,5 +8,9 @@ import java.util.List;
 
 public interface ITransactionService extends ICRUD<Transaction,Long>{
 
-    Transaction saveTransactional (Transaction transaction, List<TransactionDetail> details);
+
+    List<Transaction> getAllTransactions();
+    void saveTransaction(Transaction transaction);
+    Enterprise getTransactionById(long id);
+    void deleteTransactionById(Long id);
 }
