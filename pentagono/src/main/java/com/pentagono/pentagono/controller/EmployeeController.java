@@ -27,6 +27,12 @@ public class EmployeeController {
     @Qualifier("employeeMapper")
     private ModelMapper mapper;
 
+    @PostMapping
+    public Employee createEmployee(@RequestBody Employee employee){return iEmployeeService.createEmployee(employee);}
+
+    @GetMapping
+    public List<Employee> getEmployee(){return iEmployeeService.getAllEmployees();}
+
     @GetMapping
     public ResponseEntity<List<EmployeeDTO>> readAll() throws Exception{
         List<EmployeeDTO> list = iEmployeeService.readAll().stream()
@@ -35,7 +41,7 @@ public class EmployeeController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<EmployeeDTO> create(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
         Employee empl = iEmployeeService.create(mapper.map(employeeDto,Employee.class));
         EmployeeDTO dto = mapper.map(empl,EmployeeDTO.class);
@@ -62,7 +68,7 @@ public class EmployeeController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }*/
 
-    @PutMapping
+    /*@PutMapping
     public ResponseEntity<EmployeeDTO> update(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
         Employee empl = iEmployeeService.readById(employeeDto.getIdEmployee());
         if(empl == null){
@@ -94,8 +100,7 @@ public class EmployeeController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    /*CODIGO NUEVO*/
-    /*lista todos los empleados*/
+    /*CODIGO NUEVO
     @GetMapping("/")
     public String viewHomePage(Model model){
         model.addAttribute("ListEmployee",iEmployeeService.getAllEmployees());

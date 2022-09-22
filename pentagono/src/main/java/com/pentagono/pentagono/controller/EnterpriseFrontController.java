@@ -7,21 +7,23 @@ import com.pentagono.pentagono.service.IEnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/enterpriseFront")
 public class EnterpriseFrontController {
 
 
     @Autowired
     private IEnterpriseService iEnterpriseService;
 
+
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    public String index(){
+        return "index";
+    }
 
     @RequestMapping(value = "/enterprisesf", method = RequestMethod.GET)/*Ver Empresas*/
     public String enterprises(Model model) {
@@ -30,7 +32,6 @@ public class EnterpriseFrontController {
         return "see_enterprise";
     }
 
-    @PostMapping
-    public Enterprise createEnterprise(@RequestBody Enterprise enterprise){return iEnterpriseService.createEnterprise(enterprise);}
+
 
 }

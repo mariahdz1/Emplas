@@ -44,16 +44,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center" style = "background-color: #1F76BA; color: aliceblue; width: 100%; height: 41px;">
           <li class="nav-item active" >
-            <a class="nav-link" href="index.html" style = "color: #ffff ;">Inicio</a>
+            <a th:href="@{/index}" class="nav-link" style = "color: #ffff ;">Inicio</a>
           </li>
 
           <li class="nav-item dropdown" >
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffff;">
               Empresas
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="see_enterprise.html">Ver</a></li>
-              <li><a class="dropdown-item" href="new_enterprise.html">Crear</a></li>
+            <ul th:href="@{/enterprisesf}" class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a th:href="@{/enterprisesf}" class="dropdown-item" href="see_enterprise.html">Ver</a></li>
+              <li><a th:href="@{/enterprisesf}" class="dropdown-item" href="new_enterprise.html">Crear</a></li>
 
             </ul>
 

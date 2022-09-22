@@ -1,6 +1,5 @@
 package com.pentagono.pentagono.repository;
 
-import com.pentagono.pentagono.model.Enterprise;
 import com.pentagono.pentagono.model.Transaction;
 import org.springframework.stereotype.Repository;
 

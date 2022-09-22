@@ -43,7 +43,7 @@ public class EnterpriseServiceImpl extends CRUDImpl<Enterprise, Long> implements
     }
 
     @Override
-    public Enterprise create(Enterprise enterprise) {
+    public Enterprise createEnterprise(Enterprise enterprise) {
         return this.iEnterpriseRepository.save(enterprise);
     }
 

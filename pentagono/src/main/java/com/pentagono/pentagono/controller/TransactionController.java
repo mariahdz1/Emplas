@@ -25,6 +25,12 @@ public class TransactionController {
     private ModelMapper mapper;
 
     @GetMapping
+    public List<Transaction> getTransaction(){return iTransactionService.getAllTransactions();}
+
+    @PostMapping
+    public Transaction createTransaction(@RequestBody Transaction transaction){return iTransactionService.createTransaction(transaction);}
+
+    /*@GetMapping
     public ResponseEntity<List<TransactionDTO>> readAll() throws Exception {
         List<TransactionDTO> list = iTransactionService.readAll().stream()
                 .map(t -> mapper.map(t, TransactionDTO.class))
@@ -32,7 +38,7 @@ public class TransactionController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @PostMapping/*Lina*/
+    @PostMapping
     public ResponseEntity<TransactionDTO> create(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
         Transaction t = iTransactionService.create(mapper.map(transactionDTO, Transaction.class));
         TransactionDTO dto = mapper.map(t, TransactionDTO.class);
@@ -49,9 +55,9 @@ public class TransactionController {
         Transaction transaction = iTransactionService.update(mapper.map(transactionDTO, Transaction.class));
         TransactionDTO dto = mapper.map(transaction, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
-    }
+    }*/
 
-    @PatchMapping/*lINA*/
+    /*@PatchMapping
     public ResponseEntity<TransactionDTO> updatePatch(@Valid @RequestBody TransactionDTO transactionDTO) throws Exception {
         Transaction tr = iTransactionService.readById(transactionDTO.getIdTransaction());
         if (tr == null) {
@@ -80,7 +86,7 @@ public class TransactionController {
         }
         TransactionDTO dto = mapper.map(t, TransactionDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
-    }
+    }*/
 
 
 }

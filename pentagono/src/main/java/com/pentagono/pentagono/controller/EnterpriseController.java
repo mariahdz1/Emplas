@@ -20,30 +20,36 @@ import java.util.stream.Collectors;
 public class EnterpriseController {
 
     @Autowired
-    private IEnterpriseService service;
+    private IEnterpriseService iEnterpriseService;
 
     @Autowired
     @Qualifier("enterpriseMapper")
     private ModelMapper mapper;
 
-    @GetMapping/*FUNCIONAL*/
+    @PostMapping
+    public Enterprise createEnterprise(@RequestBody Enterprise enterprise){return iEnterpriseService.createEnterprise(enterprise);}
+
+    @GetMapping
+    public List<Enterprise> getEnterprise(){return iEnterpriseService.getAllEnterprises();}
+
+    /*@GetMapping
     public ResponseEntity<List<EnterpriseDTO>> readAll() throws Exception{
-        List<EnterpriseDTO> list = service.readAll().stream()
+        List<EnterpriseDTO> list = iEnterpriseService.readAll().stream()
                 .map(e -> mapper.map(e, EnterpriseDTO.class))
                 .collect(Collectors.toList());
             return new ResponseEntity <>(list, HttpStatus.OK);
     }
 
-    @PostMapping/*FUNCIONAL*/
+    @PostMapping
     public ResponseEntity<EnterpriseDTO> create(@Valid @RequestBody EnterpriseDTO enterpriseDTO) throws Exception{
-        Enterprise ent = service.create(mapper.map(enterpriseDTO, Enterprise.class));
+        Enterprise ent = iEnterpriseService.create(mapper.map(enterpriseDTO, Enterprise.class));
         EnterpriseDTO dto = mapper.map(ent,EnterpriseDTO.class);
         return new ResponseEntity<>(dto,HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")/*FUNCIONAL*/
+    @GetMapping("/{id}")
     public ResponseEntity<EnterpriseDTO> readById(@PathVariable("id") Long id) throws Exception{
-        Enterprise ent = service.readById(id);
+        Enterprise ent = iEnterpriseService.readById(id);
         if(ent == null){
             throw new ModelNotFoundException("Id de la empresa ingresado no fue encontrado en la Base de datos Emplas: " + id);
         }
@@ -51,39 +57,39 @@ public class EnterpriseController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")/*FUNCIONAL*/
+    @PutMapping("/{id}")
     public ResponseEntity<EnterpriseDTO> update(@Valid @RequestBody EnterpriseDTO enterpriseDTO) throws Exception{
-        Enterprise ent = service.readById(enterpriseDTO.getIdEnterprise());
+        Enterprise ent = iEnterpriseService.readById(enterpriseDTO.getIdEnterprise());
         if(ent == null){
             throw new ModelNotFoundException("No fue encontrado en la Base de Datos Emplas Id de la empresa: " + enterpriseDTO.getIdEnterprise());
         }
-        Enterprise enterprise = service.update(mapper.map(enterpriseDTO, Enterprise.class));
+        Enterprise enterprise = iEnterpriseService.update(mapper.map(enterpriseDTO, Enterprise.class));
         EnterpriseDTO dto = mapper.map(enterprise, EnterpriseDTO.class);
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<EnterpriseDTO> updatePatch(@Valid @RequestBody EnterpriseDTO enterpriseDTO) throws Exception{
-        Enterprise ent = service.readById(enterpriseDTO.getIdEnterprise());
+        Enterprise ent = iEnterpriseService.readById(enterpriseDTO.getIdEnterprise());
         if(ent == null){
             throw new ModelNotFoundException("No fue encontrado en la Base de Datos Emplas Id de la empresa: " + enterpriseDTO.getIdEnterprise());
-        }
-        Enterprise enterprise = service.update(mapper.map(enterpriseDTO, Enterprise.class));
+        }*/
+        /*Enterprise enterprise = iEnterpriseService.update(mapper.map(enterpriseDTO, Enterprise.class));
         EnterpriseDTO dto = mapper.map(enterprise, EnterpriseDTO.class);
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")/*FUNCIONAL*/
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
-        Enterprise ent = service.readById(id);
+        Enterprise ent = iEnterpriseService.readById(id);
         if(ent == null){
             throw new ModelNotFoundException("Id no encontrado en la Base de datos Emplas: " + id);
         }
-        service.delete(id);
+        iEnterpriseService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    /*@GetMapping("/find/name/{param}")
+    @GetMapping("/find/name/{param}")
     public ResponseEntity<List<EnterpriseDTO>> findByName(@PathVariable("param") String param) throws Exception
     {
         List<EnterpriseDTO> list = service.findByName(param).stream()

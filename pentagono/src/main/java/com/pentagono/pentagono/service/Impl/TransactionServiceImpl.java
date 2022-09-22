@@ -24,7 +24,6 @@ public class TransactionServiceImpl extends CRUDImpl <Transaction, Long> impleme
         return this.iTransactionRepository.save(transaction);
     }
 
-
     @Autowired
     private ITransactionRepository repo;
 

@@ -1,8 +1,7 @@
 package com.pentagono.pentagono.controller;
 
-import com.pentagono.pentagono.model.Enterprise;
+
 import com.pentagono.pentagono.model.Transaction;
-import com.pentagono.pentagono.service.IEmployeeService;
 import com.pentagono.pentagono.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,17 +12,17 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/transactionsf")
+@RequestMapping("/transactionFront")
 public class TransactionFrontController {
 
     @Autowired
     private ITransactionService iTransactionService;
 
-    @GetMapping
-    public List<Transaction> getTransaction(){return iTransactionService.getAllTransactions();}
 
-    @PostMapping
-    public Transaction createTransaction(@RequestBody Transaction transaction){return iTransactionService.createTransaction(transaction);}
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    public String index(){
+        return "index";
+    }
 
     @RequestMapping(value = "/transactionsf", method = RequestMethod.GET)/*Ver Transacciones*/
     public String transactions(Model model) {
