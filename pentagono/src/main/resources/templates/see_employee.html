@@ -51,7 +51,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffff;">
               Empresas
             </a>
-            <ul th:href="@{/enterpriseFront}" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a th:href="@{/enterpriseV}" class="dropdown-item" href="see_enterprise.html">Ver</a></li>
               <li><a th:href="@{/enterpriseN}" class="dropdown-item" href="new_enterprise.html">Crear</a></li>
 
@@ -61,7 +61,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#ffff;">
               Empleados
             </a>
-            <ul th:href="@{/employeeFront}" class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <ul  class="dropdown-menu" aria-labelledby="navbarDropdown" >
               <li><a th:href="@{/employeeS}" class="dropdown-item" href="see_employee.html">Ver</a></li>
               <li><a th:href="@{/employeeN}" class="dropdown-item" href="new_employee.html">Crear</a></li>
 
@@ -71,7 +71,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffff;">
               Movimientos
             </a>
-            <ul th:href="@{/transactionFront}" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a th:href="@{/transactionS}" class="dropdown-item" href="see_employee.html">Ver</a></li>
               <li><a th:href="@{/transactionN}" class="dropdown-item" href="new_employee.html">Agregar</a></li>
 
@@ -100,46 +100,34 @@
         <thead>
 
         <tr class="tabla" style="background-color: #1F76BA; color: #fff">
-          <th scope="col">#</th>
-          <th scope="col">Identificación</th>
-          <th scope="col">Nombre </th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Rol</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Empresa</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Movimientos</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
 
         </tr>
         </thead>
 
         <tbody>
-        <tr class="table-secondary">
-          <th scope="row">1</th>
-          <tdo llenare con url></tdoojojonjbnjkbvjkbvjkbv> <!-- Id no sé si queda True, validar si se elimina la casilla o es id automático -->
-          <td>colocar nombre </td> <!-- PATCH Nombre -->
-          <td>colocar tel</td> <!-- PATCH tel -->
-          <td>colocar rol</td><!-- PATCH Asigación de rol Validar intentar con True -->
-          <td><button type="button" class="btn btn-primary" style="background-color: #1F76BA; color: #fff;">Modificar</button></td><!-- Botón para volver al formulario y modificar -->
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td><!-- botón DEL -->
-        </tr>
-        <tr> <!-- Estos son ejemplos creados para visualizar la tabla,
-               eliminar cuando se haga la conexion -->
-          <th scope="row">2</th>
-          <td>1057265654</td>
-          <td>Sofia Lemus</td>
-          <td>3124103542</td>
-          <td>Operario</td>
-          <td><button type="button" class="btn btn-primary">Modificar</button></td>
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr class="table-secondary">
-          <th scope="row">3</th>
-          <td>1057265410</td>
-          <td>Sofia Jaramillo</td>
-          <td>3124562125</td>
-          <td>Operario</td>
-          <td><button type="button" class="btn btn-primary">Modificar</button></td>
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
+        <tr th:each="empleado : ${emplelist}" class="table-secondary">
+          <td th:text="${employee.idEmployee}"></td>
+          <td th:text="${employee.name}"></td>
+          <td th:text="${employee.email}"></td>
+          <td th:text="${employee.enterprise.name}"></td>
+          <td th:if="${employee.rol=='ROLE_ADMIN'}">Administrativo</td>
+          <td th:if="${employee.rol=='ROLE_USER'}">Operativo</td>
+          <td th:if="${employee.estado==true}">Activo</td>
+          <td th:if="${employee.estado==false}">Inactivo</td>
+          <td><button type="button" class="btn btn-info"><a th:href="@{/Employee/{id}/Transaction(id=${employee.id})}">Ver</a></button></td>
+          <td><button type="button" class="btn btn-warning"><a th:href="@{/new_employee/{id}(id=${employee.id})}">Editar</a></button></td>
+          <td><button type="button" class="btn btn-danger"><a th:href="@{/delete_employee/{id}(id=${employee.id})}">Eliminar</a></button></td> </tr>
+        <tr>
+
         </tbody>
 
       </table>

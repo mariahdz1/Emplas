@@ -20,6 +20,33 @@ public class UsersServiceImpl extends CRUDImpl<Users, Long> implements IUsersSer
         return repo;
     }
 
+    @Override
+    public List<Users> getAllUsers() {
+        return null;
+    }
+
+    @Override
+    public void saveUsers(Users User) {
+
+    }
+
+    @Override
+    public Users getUsersById(long idUser) {
+        return null;
+    }
+
+    @Override
+    public void deleteUsersById(Long idUser) {
+
+    }
+
+    @Override
+    public Users createUsers(Users users) {
+        return null;
+    }
+
+
+
    /* public List<Users> getAllUsers() {return (List<Users>) this.iUsersRepository.findAll();}
 
     public Transaction createTransaction(Transaction transaction) {

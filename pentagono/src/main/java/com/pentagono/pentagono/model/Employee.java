@@ -21,7 +21,7 @@ public class Employee {
     @Column(name="identification",length=80,nullable = false)
     private String identification;
 
-    @Column(name="email",length=80,nullable = false, unique = true)
+    @Column(name="email",length=80)
     @Email
     private String email;
 
@@ -33,6 +33,12 @@ public class Employee {
 
     @Column(name = "image")
     private String image;
+
+    private String rol;
+
+    private String password;
+
+    private Boolean estado;
 
     @Column(name="createdAt")
     @Temporal(TemporalType.TIMESTAMP)

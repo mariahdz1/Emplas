@@ -2,6 +2,7 @@ package com.pentagono.pentagono.controller.back;
 
 import com.pentagono.pentagono.dto.UsersDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
+import com.pentagono.pentagono.model.Transaction;
 import com.pentagono.pentagono.model.Users;
 import com.pentagono.pentagono.service.IUsersService;
 import org.modelmapper.ModelMapper;
@@ -17,10 +18,10 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UsersController {
     @Autowired
-    private IUsersService service;
+    private IUsersService iUsersService;
 
     @Autowired
     @Qualifier("usersMapper")
@@ -28,6 +29,12 @@ public class UsersController {
 
 
     @GetMapping
+    public List<Users> getUsers(){return iUsersService.getAllUsers();}
+
+    @PostMapping
+    public Users createUsers(@RequestBody Users users){return iUsersService.createUsers(users);}
+
+   /* @GetMapping
     public ResponseEntity<List<UsersDTO>> readAll() throws Exception{
         List<UsersDTO> list = service.readAll().stream()
                 .map(u -> mapper.map(u, UsersDTO.class))
@@ -65,33 +72,33 @@ public class UsersController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UsersDTO> update(@Valid @RequestBody UsersDTO userDTO) throws Exception{
-        Users use = service.readById(userDTO.getIdUser());
+        Users use = iUsersService.readById(userDTO.getIdUser());
         if(use == null){
             throw new ModelNotFoundException("El Id no se encuentra: " + userDTO.getIdUser());
         }
-        Users user = service.update(mapper.map(userDTO, Users.class));
+        Users user = iUsersService.update(mapper.map(userDTO, Users.class));
         UsersDTO dto = mapper.map(user, UsersDTO.class);
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<UsersDTO> updatePatch(@Valid @RequestBody UsersDTO userDTO) throws Exception{
-        Users use = service.readById(userDTO.getIdUser());
+        Users use = iUsersService.readById(userDTO.getIdUser());
         if(use == null){
             throw new ModelNotFoundException("El Id no se encuentra: " + userDTO.getIdUser());
         }
-        Users user = service.update(mapper.map(userDTO, Users.class));
+        Users user = iUsersService.update(mapper.map(userDTO, Users.class));
         UsersDTO dto = mapper.map(user, UsersDTO.class);
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
-        Users user = service.readById(id);
+        Users user = iUsersService.readById(id);
         if(user == null){
             throw new ModelNotFoundException("El Id Número: " + id + " No se encuentra");
         }
-        service.delete(id);
+        iUsersService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
