@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.controller;
+package com.pentagono.pentagono.controller.back;
 
 import com.pentagono.pentagono.dto.TransactionDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;

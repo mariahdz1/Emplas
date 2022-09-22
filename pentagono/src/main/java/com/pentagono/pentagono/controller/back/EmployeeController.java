@@ -1,4 +1,4 @@
-package com.pentagono.pentagono.controller;
+package com.pentagono.pentagono.controller.back;
 
 import com.pentagono.pentagono.dto.EmployeeDTO;
 import com.pentagono.pentagono.exceptions.ModelNotFoundException;
@@ -33,19 +33,12 @@ public class EmployeeController {
     @GetMapping
     public List<Employee> getEmployee(){return iEmployeeService.getAllEmployees();}
 
-    @GetMapping
+    /*@GetMapping
     public ResponseEntity<List<EmployeeDTO>> readAll() throws Exception{
         List<EmployeeDTO> list = iEmployeeService.readAll().stream()
                 .map(l -> mapper.map(l, EmployeeDTO.class))
                 .collect(Collectors.toList());
         return new ResponseEntity<>(list, HttpStatus.OK);
-    }
-
-    /*@PostMapping
-    public ResponseEntity<EmployeeDTO> create(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
-        Employee empl = iEmployeeService.create(mapper.map(employeeDto,Employee.class));
-        EmployeeDTO dto = mapper.map(empl,EmployeeDTO.class);
-        return new ResponseEntity<>(dto,HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -56,7 +49,16 @@ public class EmployeeController {
         }
         EmployeeDTO dto = mapper.map(empl, EmployeeDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
-    }
+    }*/
+
+    /*@PostMapping
+    public ResponseEntity<EmployeeDTO> create(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
+        Employee empl = iEmployeeService.create(mapper.map(employeeDto,Employee.class));
+        EmployeeDTO dto = mapper.map(empl,EmployeeDTO.class);
+        return new ResponseEntity<>(dto,HttpStatus.CREATED);
+    }*/
+
+
 
     /*@GetMapping("/{name}")
     public ResponseEntity<EmployeeDTO> findByName(@PathVariable("name") String name) throws Exception{
@@ -68,7 +70,7 @@ public class EmployeeController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }*/
 
-    /*@PutMapping
+    @PutMapping
     public ResponseEntity<EmployeeDTO> update(@Valid @RequestBody EmployeeDTO employeeDto) throws Exception{
         Employee empl = iEmployeeService.readById(employeeDto.getIdEmployee());
         if(empl == null){
