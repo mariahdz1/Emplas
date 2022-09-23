@@ -14,7 +14,7 @@
 	<name>pentagono</name>
 	<description>Proyecto MINTIC Pentagono empresa Emplas</description>
 	<properties>
-		<java.version>11</java.version>
+		<version>11</version>
 	</properties>
 	<dependencies>
 		<dependency>
